@@ -127,7 +127,20 @@
           <input type="color" id="f_hero2Color" title="颜色" value="#B8743A" style="width:40px;height:36px">
         </div>
       </div>
-      <div class="field"><label>副标题</label><textarea id="f_heroSub"></textarea></div>
+      <div class="field">
+        <label>副标题</label>
+        <div style="display:flex;gap:8px;align-items:flex-start">
+          <textarea id="f_heroSub" style="flex:1"></textarea>
+          <select id="f_heroSubFont" title="字体" style="width:130px">
+            <option value="">默认字体</option>
+            <option value="'Ma Shan Zheng',cursive">毛笔手写</option>
+            <option value="'ZCOOL XiaoWei',serif">站酷小薇</option>
+            <option value="'Long Cang',cursive">龙藏手写</option>
+            <option value="'Noto Serif SC',serif">宋体</option>
+          </select>
+          <input type="color" id="f_heroSubColor" title="颜色" value="#8a7e72" style="width:40px;height:36px">
+        </div>
+      </div>
       <div class="row">
         <div class="field"><label>主按钮文字</label><input id="f_heroBtn1"></div>
         <div class="field"><label>次按钮文字</label><input id="f_heroBtn2"></div>
@@ -503,6 +516,8 @@ function fillForm(){
   if(content.hero.hero1Color) document.getElementById('f_hero1Color').value = content.hero.hero1Color;
   if(content.hero.hero2Font) document.getElementById('f_hero2Font').value = content.hero.hero2Font;
   if(content.hero.hero2Color) document.getElementById('f_hero2Color').value = content.hero.hero2Color;
+  if(content.hero.subFont) document.getElementById('f_heroSubFont').value = content.hero.subFont;
+  if(content.hero.subColor) document.getElementById('f_heroSubColor').value = content.hero.subColor;
   document.getElementById('f_heroSub').value = content.hero.subtitle || '';
   document.getElementById('f_heroBtn1').value = content.hero.btn1 || '';
   document.getElementById('f_heroBtn2').value = content.hero.btn2 || '';
@@ -701,6 +716,8 @@ async function doSave(){
   content.hero.hero1Color = document.getElementById('f_hero1Color').value;
   content.hero.hero2Font = document.getElementById('f_hero2Font').value;
   content.hero.hero2Color = document.getElementById('f_hero2Color').value;
+  content.hero.subFont = document.getElementById('f_heroSubFont').value;
+  content.hero.subColor = document.getElementById('f_heroSubColor').value;
   content.hero.subtitle = document.getElementById('f_heroSub').value;
   content.hero.btn1 = document.getElementById('f_heroBtn1').value;
   content.hero.btn2 = document.getElementById('f_heroBtn2').value;

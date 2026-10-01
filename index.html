@@ -207,6 +207,8 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   if(c.hero.hero2Font) document.getElementById('heroTitle2').style.fontFamily = c.hero.hero2Font;
   if(c.hero.hero2Color) document.getElementById('heroTitle2').style.color = c.hero.hero2Color;
   document.getElementById('heroSubtitle').textContent = c.hero.subtitle;
+  if(c.hero.subFont) document.getElementById('heroSubtitle').style.fontFamily = c.hero.subFont;
+  if(c.hero.subColor) document.getElementById('heroSubtitle').style.color = c.hero.subColor;
   document.getElementById('heroBtn1').textContent = c.hero.btn1;
   document.getElementById('heroBtn2').textContent = c.hero.btn2;
 
