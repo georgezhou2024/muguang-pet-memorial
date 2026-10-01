@@ -171,6 +171,10 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   if(t.bg) root.setProperty('--bg', t.bg);
   if(t.bgSoft) root.setProperty('--bg-soft', t.bgSoft);
   if(t.line) root.setProperty('--line', t.line);
+  if(t.cardBg){
+    const cb = t.cardBg;
+    document.querySelectorAll('.service-card,.gallery-item,.block-card,.plan-card,.process-step').forEach(el=>el.style.background = cb);
+  }
   if(t.fontHeading){ root.setProperty('--font-heading', t.fontHeading); document.documentElement.style.fontFamily = t.fontBody || "'Noto Serif SC',serif"; }
   if(t.bodySize) document.body.style.fontSize = t.bodySize + 'px';
   if(t.headWeight) document.querySelectorAll('h1,h2,h3').forEach(el=>el.style.fontWeight = t.headWeight);

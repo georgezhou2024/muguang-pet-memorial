@@ -173,6 +173,7 @@
       <div class="color-row"><label>页面背景</label><input type="color" id="c_bg" oninput="syncColor('c_bg','t_bg')"><input type="text" id="t_bg" oninput="syncColor('t_bg','c_bg')"></div>
       <div class="color-row"><label>浅区块背景</label><input type="color" id="c_bgSoft" oninput="syncColor('c_bgSoft','t_bgSoft')"><input type="text" id="t_bgSoft" oninput="syncColor('t_bgSoft','c_bgSoft')"></div>
       <div class="color-row"><label>边框线色</label><input type="color" id="c_line" oninput="syncColor('c_line','t_line')"><input type="text" id="t_line" oninput="syncColor('t_line','c_line')"></div>
+      <div class="color-row"><label>卡片背景色</label><input type="color" id="c_cardBg" oninput="syncColor('c_cardBg','t_cardBg')"><input type="text" id="t_cardBg" oninput="syncColor('t_cardBg','c_cardBg')"></div>
     </div>
 
     <div class="section">
@@ -498,7 +499,7 @@ function fillForm(){
   // theme
   const t = content.theme || {};
   setColor('brand', t.brand); setColor('brandDark', t.brandDark); setColor('brandSoft', t.brandSoft);
-  setColor('ink', t.ink); setColor('bg', t.bg); setColor('bgSoft', t.bgSoft); setColor('line', t.line);
+  setColor('ink', t.ink); setColor('bg', t.bg); setColor('bgSoft', t.bgSoft); setColor('line', t.line); setColor('cardBg', t.cardBg);
   if(t.fontHeading) document.getElementById('f_fontHeading').value = t.fontHeading;
   if(t.fontBody) document.getElementById('f_fontBody').value = t.fontBody;
   if(t.headWeight) document.getElementById('f_headWeight').value = t.headWeight;
@@ -698,6 +699,7 @@ async function doSave(){
     bg: document.getElementById('t_bg').value,
     bgSoft: document.getElementById('t_bgSoft').value,
     line: document.getElementById('t_line').value,
+    cardBg: document.getElementById('t_cardBg').value,
     fontHeading: document.getElementById('f_fontHeading').value,
     fontBody: document.getElementById('f_fontBody').value,
     headWeight: document.getElementById('f_headWeight').value,
