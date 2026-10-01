@@ -12,7 +12,7 @@
 
 <div class="topbar">
   <div class="container">
-    <span class="hotline" id="hotlineTop">24小时善终热线 · 400-820-XXXX</span>
+    <span class="hotline" id="hotlineTop">24小时善终热线</span>
     <span>预约上门接宠</span>
   </div>
 </div>
@@ -36,14 +36,14 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="heroSection">
   <div class="hero-inner">
-    <div class="mark">🌈</div>
+    <div class="mark" id="heroMark">🌈</div>
     <h1>
       <span id="heroTitle1">为你的宠物送最后一程</span>
       <span class="accent" id="heroTitle2">让我们为毛孩子祈祷</span>
     </h1>
-    <p id="heroSubtitle">十二年的陪伴，值得一场温柔的告别。沐光宠语以尊严与敬意，陪你走完这最后一段路。</p>
+    <p id="heroSubtitle">十二年的陪伴，值得一场温柔的告别。</p>
     <div class="btn-row">
       <a href="/booking" class="btn btn-solid">立即预约告别</a>
       <a href="#process" class="btn btn-ghost">了解告别流程</a>
@@ -69,12 +69,7 @@
       <h2>四步，温柔送别</h2>
       <p>你不需要记住任何步骤，我们会全程陪着你。</p>
     </div>
-    <div class="process">
-      <div class="step"><div class="icon">📞</div><h3>来电咨询</h3><p>拨通热线，客服会轻声了解情况，告诉你接下来会发生什么，不会催促你做任何决定。</p></div>
-      <div class="step"><div class="icon">🚙</div><h3>接宠净身</h3><p>专车接回，净身、梳理、安置在柔软的告别室，你可以选择陪它最后一段时光。</p></div>
-      <div class="step"><div class="icon">🌷</div><h3>告别仪式</h3><p>在独立告别室里，鞠躬、献花、告别。你可以拍照、写信、播放它喜欢的音乐。</p></div>
-      <div class="step"><div class="icon">✨</div><h3>骨灰归还</h3><p>独立火化后，骨灰装入你选定的纪念容器。可带回家、可安葬安息林、可做成晶石。</p></div>
-    </div>
+    <div class="process" id="processGrid"></div>
   </div>
 </section>
 
@@ -91,11 +86,11 @@
 
 <section class="section section-soft" id="about">
   <div class="container philosophy">
-    <div class="visual">🐾</div>
+    <div class="visual" id="aboutVisual">🐾</div>
     <div>
-      <span class="eyebrow" style="color:var(--brand);letter-spacing:4px;font-size:13px">OUR PHILOSOPHY</span>
+      <span class="eyebrow" style="letter-spacing:4px;font-size:13px">OUR PHILOSOPHY</span>
       <h2 id="philoTitle">它不是一只动物，它是家人。</h2>
-      <blockquote id="philoQuote">我们相信，陪伴是相互的。它用一生治愈了你，最后这一程，也值得被温柔以待。</blockquote>
+      <blockquote id="philoQuote">我们相信，陪伴是相互的。</blockquote>
       <p id="philoBody" style="margin-bottom:16px">沐光宠语由一群真正爱过宠物的人创办。</p>
       <a href="/booking" class="btn">联系我们 →</a>
     </div>
@@ -108,7 +103,7 @@
     <p>无论白天还是深夜，拨通电话，就有人轻声回应你。</p>
     <div class="phone" id="hotlineBig">400-820-XXXX</div>
     <div style="margin-top:28px">
-      <a href="/booking" class="btn btn-solid" style="background:#E8D5BE;color:var(--ink);border:none">在线提交预约</a>
+      <a href="/booking" class="btn btn-solid contact-btn">在线提交预约</a>
     </div>
   </div>
 </section>
@@ -116,34 +111,64 @@
 <footer>
   <div class="container">
     <div class="foot-grid">
-      <div><h4>沐光宠语</h4><p style="line-height:1.8">一家有温度的宠物善终服务机构。<br>让每一只离开的毛孩子，都被温柔送别。</p></div>
+      <div><h4 id="footBrand">沐光宠语</h4><p id="footDesc" style="line-height:1.8"></p></div>
       <div><h4>服务项目</h4><ul><li><a href="#services">上门接宠</a></li><li><a href="#services">净身美容</a></li><li><a href="#services">告别仪式</a></li><li><a href="#services">独立火化</a></li></ul></div>
       <div><h4>纪念方式</h4><ul><li><a href="#services">骨灰罐</a></li><li><a href="#services">晶石吊坠</a></li><li><a href="#services">爪印纪念</a></li><li><a href="#services">安息林树葬</a></li></ul></div>
       <div><h4>联系我们</h4><ul><li><a href="/booking">在线预约</a></li><li><a href="#">服务协议</a></li><li><a href="#">隐私声明</a></li></ul></div>
     </div>
-    <div class="foot-bottom">© 2026 沐光宠语 MuGuang Pet Memorial · 让爱与记忆，温柔延续</div>
+    <div class="foot-bottom" id="footCopyright">© 2026 沐光宠语</div>
   </div>
 </footer>
 
 <script>
 fetch('content.json').then(r=>r.json()).then(c=>{
+  // ===== 动态配色 =====
+  const t = c.theme || {};
+  const root = document.documentElement.style;
+  if(t.brand) root.setProperty('--brand', t.brand);
+  if(t.brandDark) root.setProperty('--brand-dark', t.brandDark);
+  if(t.brandSoft) root.setProperty('--brand-soft', t.brandSoft);
+  if(t.ink) root.setProperty('--ink', t.ink);
+  if(t.bg) root.setProperty('--bg', t.bg);
+  if(t.bgSoft) root.setProperty('--bg-soft', t.bgSoft);
+  if(t.line) root.setProperty('--line', t.line);
+
+  // ===== 品牌 =====
   document.getElementById('brandName').textContent = c.brand.name;
   document.getElementById('brandNameEn').textContent = c.brand.nameEn;
-  document.getElementById('logoMark').textContent = c.brand.logoEmoji;
+  document.getElementById('footBrand').textContent = c.brand.name;
+  // Logo: 图片优先，否则 emoji
+  const lm = document.getElementById('logoMark');
+  if(c.brand.logoImage){
+    lm.innerHTML = `<img src="${c.brand.logoImage}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+  } else {
+    lm.textContent = c.brand.logoEmoji;
+  }
+
+  // ===== 热线/地址 =====
   document.getElementById('hotlineTop').textContent = '24小时善终热线 · ' + c.hotline;
   document.getElementById('hotlineBig').textContent = c.hotline;
+
+  // ===== Hero =====
+  document.getElementById('heroMark').textContent = c.hero.mark;
   document.getElementById('heroTitle1').textContent = c.hero.title1;
   document.getElementById('heroTitle2').textContent = c.hero.title2;
   document.getElementById('heroSubtitle').textContent = c.hero.subtitle;
-  document.getElementById('philoTitle').innerHTML = c.philosophy.title;
-  document.getElementById('philoQuote').textContent = c.philosophy.quote;
-  document.getElementById('philoBody').textContent = c.philosophy.body;
+  if(c.images && c.images.heroBg){
+    document.getElementById('heroSection').style.backgroundImage = `linear-gradient(rgba(253,251,248,.85),rgba(245,239,230,.9)),url('${c.images.heroBg}')`;
+    document.getElementById('heroSection').style.backgroundSize = 'cover';
+    document.getElementById('heroSection').style.backgroundPosition = 'center';
+  }
 
-  // services
+  // ===== 服务 =====
   document.getElementById('servicesGrid').innerHTML = c.services.map(s=>`
     <div class="card"><div class="icon">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
 
-  // plans
+  // ===== 流程 =====
+  document.getElementById('processGrid').innerHTML = (c.process||[]).map(p=>`
+    <div class="step"><div class="icon">${p.icon}</div><h3>${p.title}</h3><p>${p.desc}</p></div>`).join('');
+
+  // ===== 套餐 =====
   document.getElementById('plansGrid').innerHTML = c.plans.map(p=>`
     <div class="plan${p.featured?' featured':''}">
       <h3>${p.name}</h3>
@@ -151,6 +176,24 @@ fetch('content.json').then(r=>r.json()).then(c=>{
       <ul>${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
       <a href="/booking" class="btn" style="text-align:center">预约此套餐</a>
     </div>`).join('');
+
+  // ===== 理念 =====
+  document.getElementById('philoTitle').innerHTML = c.philosophy.title;
+  document.getElementById('philoQuote').textContent = c.philosophy.quote;
+  document.getElementById('philoBody').textContent = c.philosophy.body;
+  const av = document.getElementById('aboutVisual');
+  if(c.images && c.images.aboutImg){
+    av.innerHTML = `<img src="${c.images.aboutImg}" style="width:100%;height:100%;object-fit:cover;border-radius:100px">`;
+    av.style.background = 'none';
+  } else {
+    av.textContent = '🐾';
+  }
+
+  // ===== Footer =====
+  if(c.footer){
+    document.getElementById('footDesc').textContent = c.footer.desc;
+    document.getElementById('footCopyright').textContent = c.footer.copyright;
+  }
 });
 </script>
 </body>

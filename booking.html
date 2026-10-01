@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<div class="topbar"><div class="container"><span class="hotline">24小时善终热线 · 400-820-XXXX</span><span>预约上门接宠</span></div></div>
+<div class="topbar"><div class="container"><span class="hotline" id="hotlineTop">24小时善终热线</span><span>预约上门接宠</span></div></div>
 
 <header><div class="container nav">
-  <a href="index.html" class="logo"><div class="logo-mark">🕯️</div><div class="logo-text">沐光宠语<small>MU GUANG CHONG YU</small></div></a>
+  <a href="index.html" class="logo"><div class="logo-mark" id="logoMark">🕯️</div><div class="logo-text"><span id="brandName">沐光宠语</span><small id="brandNameEn">MU GUANG CHONG YU</small></div></a>
   <nav><ul>
     <li><a href="index.html#services">服务项目</a></li>
     <li><a href="index.html#process">告别流程</a></li>
@@ -44,12 +44,8 @@
           <div class="form-group"><label>接宠地址 *</label><input required placeholder="小区 / 楼栋"></div>
         </div>
         <div class="form-group"><label>意向套餐 *</label>
-          <select required>
+          <select required id="planSelect">
             <option value="">请选择</option>
-            <option>暖暖包 ¥680 起</option>
-            <option>沐光包 ¥1,280 起（最受欢迎）</option>
-            <option>永念包 ¥2,680 起</option>
-            <option>暂不确定，需要顾问推荐</option>
           </select>
         </div>
         <div class="form-group"><label>想对它说的话 / 特殊心愿（选填）</label>
@@ -68,9 +64,45 @@
   </div>
 </section>
 
-<footer><div class="container foot-bottom">© 2026 沐光宠语 · 让爱与记忆，温柔延续</div></footer>
+<footer><div class="container foot-bottom" id="footCopyright">© 2026 沐光宠语</div></footer>
 
 <script>
+fetch('content.json').then(r=>r.json()).then(c=>{
+  // 动态配色
+  const t = c.theme || {};
+  const root = document.documentElement.style;
+  if(t.brand) root.setProperty('--brand', t.brand);
+  if(t.brandDark) root.setProperty('--brand-dark', t.brandDark);
+  if(t.brandSoft) root.setProperty('--brand-soft', t.brandSoft);
+  if(t.ink) root.setProperty('--ink', t.ink);
+  if(t.bg) root.setProperty('--bg', t.bg);
+  if(t.bgSoft) root.setProperty('--bg-soft', t.bgSoft);
+  if(t.line) root.setProperty('--line', t.line);
+
+  document.getElementById('brandName').textContent = c.brand.name;
+  document.getElementById('brandNameEn').textContent = c.brand.nameEn;
+  document.getElementById('hotlineTop').textContent = '24小时善终热线 · ' + c.hotline;
+  const lm = document.getElementById('logoMark');
+  if(c.brand.logoImage){
+    lm.innerHTML = `<img src="${c.brand.logoImage}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+  } else {
+    lm.textContent = c.brand.logoEmoji;
+  }
+  if(c.footer) document.getElementById('footCopyright').textContent = c.footer.copyright;
+
+  // 套餐下拉
+  const ps = document.getElementById('planSelect');
+  c.plans.forEach(p=>{
+    const o = document.createElement('option');
+    o.value = p.name;
+    o.textContent = `${p.name} ${p.price} ${p.unit}${p.featured?'（最受欢迎）':''}`;
+    ps.appendChild(o);
+  });
+  const o = document.createElement('option');
+  o.value = 'unsure'; o.textContent = '暂不确定，需要顾问推荐';
+  ps.appendChild(o);
+});
+
 function submitForm(e){
   e.preventDefault();
   document.getElementById('formView').style.display='none';
