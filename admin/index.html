@@ -228,6 +228,29 @@
     </div>
 
     <div class="section">
+      <h2>边框与圆角</h2>
+      <div class="row">
+        <div class="field"><label>卡片圆角</label>
+          <select id="f_radius">
+            <option value="4">直角 4px</option>
+            <option value="8">小圆角 8px</option>
+            <option value="12" selected>中圆角 12px</option>
+            <option value="16">大圆角 16px</option>
+            <option value="24">超大圆角 24px</option>
+            <option value="999">全圆角（胶囊）</option>
+          </select>
+        </div>
+        <div class="field"><label>按钮样式</label>
+          <select id="f_btnStyle">
+            <option value="solid">实心按钮</option>
+            <option value="outline">描边按钮</option>
+            <option value="soft">柔和按钮（浅底）</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
       <h2>视频（粘贴链接即可）</h2>
       <div class="field">
         <label>Hero 区视频链接</label>
@@ -471,6 +494,8 @@ function fillForm(){
   if(t.fontBody) document.getElementById('f_fontBody').value = t.fontBody;
   if(t.headWeight) document.getElementById('f_headWeight').value = t.headWeight;
   if(t.bodySize) document.getElementById('f_bodySize').value = t.bodySize;
+  if(t.radius) document.getElementById('f_radius').value = t.radius;
+  if(t.btnStyle) document.getElementById('f_btnStyle').value = t.btnStyle;
 
   // images
   const im = content.images || {};
@@ -667,7 +692,9 @@ async function doSave(){
     fontHeading: document.getElementById('f_fontHeading').value,
     fontBody: document.getElementById('f_fontBody').value,
     headWeight: document.getElementById('f_headWeight').value,
-    bodySize: document.getElementById('f_bodySize').value
+    bodySize: document.getElementById('f_bodySize').value,
+    radius: document.getElementById('f_radius').value,
+    btnStyle: document.getElementById('f_btnStyle').value
   };
 
   content.images = {
