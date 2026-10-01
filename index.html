@@ -12,7 +12,7 @@
 
 <div class="topbar">
   <div class="container">
-    <span class="hotline">24小时善终热线 · 400-820-XXXX</span>
+    <span class="hotline" id="hotlineTop">24小时善终热线 · 400-820-XXXX</span>
     <span>预约上门接宠</span>
   </div>
 </div>
@@ -20,8 +20,8 @@
 <header>
   <div class="container nav">
     <div class="logo">
-      <div class="logo-mark">🕯️</div>
-      <div class="logo-text">沐光宠语<small>MU GUANG CHONG YU</small></div>
+      <div class="logo-mark" id="logoMark">🕯️</div>
+      <div class="logo-text"><span id="brandName">沐光宠语</span><small id="brandNameEn">MU GUANG CHONG YU</small></div>
     </div>
     <nav>
       <ul>
@@ -29,30 +29,28 @@
         <li><a href="#process">告别流程</a></li>
         <li><a href="#plans">服务套餐</a></li>
         <li><a href="#about">我们的理念</a></li>
-        <li><a href="booking.html" class="nav-cta">预约告别</a></li>
+        <li><a href="/booking" class="nav-cta">预约告别</a></li>
       </ul>
     </nav>
     <button class="burger">☰</button>
   </div>
 </header>
 
-<!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
     <div class="mark">🌈</div>
     <h1>
-      为你的宠物送最后一程
-      <span class="accent">让我们为毛孩子祈祷</span>
+      <span id="heroTitle1">为你的宠物送最后一程</span>
+      <span class="accent" id="heroTitle2">让我们为毛孩子祈祷</span>
     </h1>
-    <p>十二年的陪伴，值得一场温柔的告别。<br>沐光宠语以尊严与敬意，陪你走完这最后一段路。</p>
+    <p id="heroSubtitle">十二年的陪伴，值得一场温柔的告别。沐光宠语以尊严与敬意，陪你走完这最后一段路。</p>
     <div class="btn-row">
-      <a href="booking.html" class="btn btn-solid">立即预约告别</a>
+      <a href="/booking" class="btn btn-solid">立即预约告别</a>
       <a href="#process" class="btn btn-ghost">了解告别流程</a>
     </div>
   </div>
 </section>
 
-<!-- 服务项目 -->
 <section class="section" id="services">
   <div class="container">
     <div class="section-head">
@@ -60,42 +58,10 @@
       <h2>我们能为你做的</h2>
       <p>从接宠到送别，每一个环节都以尊重与安宁为前提。</p>
     </div>
-    <div class="cards">
-      <div class="card">
-        <div class="icon">🚗</div>
-        <h3>24小时上门接宠</h3>
-        <p>无论深夜还是清晨，专车专人接宠上门。独立车厢，温柔安置，不让毛孩子再受颠簸。</p>
-      </div>
-      <div class="card">
-        <div class="icon">🛁</div>
-        <h3>净身美容</h3>
-        <p>由专业技师为它擦拭、梳理、修剪指甲，换上干净柔软的小毯子，像它睡觉时那样安详。</p>
-      </div>
-      <div class="card">
-        <div class="icon">🕯️</div>
-        <h3>专属告别仪式</h3>
-        <p>独立告别室，暖光、白菊、轻柔音乐。你可以最后一次抱抱它、说说话，从容告别。</p>
-      </div>
-      <div class="card">
-        <div class="icon">🔥</div>
-        <h3>独立火化</h3>
-        <p>一对一单独火化，绝不混炉。全程可视或可录像，让你确信：这一份骨灰，完完整整属于它。</p>
-      </div>
-      <div class="card">
-        <div class="icon">🏺</div>
-        <h3>骨灰纪念</h3>
-        <p>骨灰罐、晶石吊坠、爪印泥、毛发纪念盒……用一种可以带回家的方式，继续陪伴。</p>
-      </div>
-      <div class="card">
-        <div class="icon">🌳</div>
-        <h3>安息林安葬</h3>
-        <p>郊区纪念林提供树葬、花葬位，四季常青。每年清明，你都有一个可以回来看看的地方。</p>
-      </div>
-    </div>
+    <div class="cards" id="servicesGrid"></div>
   </div>
 </section>
 
-<!-- 流程 -->
 <section class="section section-soft" id="process">
   <div class="container">
     <div class="section-head">
@@ -104,31 +70,14 @@
       <p>你不需要记住任何步骤，我们会全程陪着你。</p>
     </div>
     <div class="process">
-      <div class="step">
-        <div class="icon">📞</div>
-        <h3>来电咨询</h3>
-        <p>拨通热线，客服会轻声了解情况，告诉你接下来会发生什么，不会催促你做任何决定。</p>
-      </div>
-      <div class="step">
-        <div class="icon">🚙</div>
-        <h3>接宠净身</h3>
-        <p>专车接回，净身、梳理、安置在柔软的告别室，你可以选择陪它最后一段时光。</p>
-      </div>
-      <div class="step">
-        <div class="icon">🌷</div>
-        <h3>告别仪式</h3>
-        <p>在独立告别室里，鞠躬、献花、告别。你可以拍照、写信、播放它喜欢的音乐。</p>
-      </div>
-      <div class="step">
-        <div class="icon">✨</div>
-        <h3>骨灰归还</h3>
-        <p>独立火化后，骨灰装入你选定的纪念容器。可带回家、可安葬安息林、可做成晶石。</p>
-      </div>
+      <div class="step"><div class="icon">📞</div><h3>来电咨询</h3><p>拨通热线，客服会轻声了解情况，告诉你接下来会发生什么，不会催促你做任何决定。</p></div>
+      <div class="step"><div class="icon">🚙</div><h3>接宠净身</h3><p>专车接回，净身、梳理、安置在柔软的告别室，你可以选择陪它最后一段时光。</p></div>
+      <div class="step"><div class="icon">🌷</div><h3>告别仪式</h3><p>在独立告别室里，鞠躬、献花、告别。你可以拍照、写信、播放它喜欢的音乐。</p></div>
+      <div class="step"><div class="icon">✨</div><h3>骨灰归还</h3><p>独立火化后，骨灰装入你选定的纪念容器。可带回家、可安葬安息林、可做成晶石。</p></div>
     </div>
   </div>
 </section>
 
-<!-- 套餐 -->
 <section class="section" id="plans">
   <div class="container">
     <div class="section-head">
@@ -136,74 +85,30 @@
       <h2>服务套餐</h2>
       <p>所有套餐均含 24 小时上门接宠、净身美容、独立告别室与独立火化。</p>
     </div>
-    <div class="plans">
-      <div class="plan">
-        <h3>暖暖包</h3>
-        <div class="price">¥680 <small>起</small></div>
-        <ul>
-          <li>专车接宠（市区内）</li>
-          <li>基础净身与梳理</li>
-          <li>15 分钟独立告别室</li>
-          <li>集体火化</li>
-          <li>简易骨灰盒</li>
-        </ul>
-        <a href="booking.html" class="btn" style="text-align:center">预约此套餐</a>
-      </div>
-      <div class="plan featured">
-        <h3>沐光包</h3>
-        <div class="price">¥1,280 <small>起</small></div>
-        <ul>
-          <li>专车接宠（全城）</li>
-          <li>精致净身美容</li>
-          <li>30 分钟告别仪式 · 鲜花布置</li>
-          <li><b>独立一对一火化</b></li>
-          <li>陶瓷骨灰罐 + 爪印泥</li>
-          <li>告别仪式录像</li>
-        </ul>
-        <a href="booking.html" class="btn btn-solid" style="text-align:center">预约此套餐</a>
-      </div>
-      <div class="plan">
-        <h3>永念包</h3>
-        <div class="price">¥2,680 <small>起</small></div>
-        <ul>
-          <li>专属顾问全程陪伴</li>
-          <li>深度净身与服饰穿戴</li>
-          <li>60 分钟定制告别仪式</li>
-          <li>独立火化 + 全程可视</li>
-          <li>晶石吊坠 / 骨灰罐二选一</li>
-          <li>安息林纪念位 10 年使用权</li>
-        </ul>
-        <a href="booking.html" class="btn" style="text-align:center">预约此套餐</a>
-      </div>
-    </div>
+    <div class="plans" id="plansGrid"></div>
   </div>
 </section>
 
-<!-- 理念 -->
 <section class="section section-soft" id="about">
   <div class="container philosophy">
     <div class="visual">🐾</div>
     <div>
       <span class="eyebrow" style="color:var(--brand);letter-spacing:4px;font-size:13px">OUR PHILOSOPHY</span>
-      <h2>它不是一只动物，<br>它是家人。</h2>
-      <blockquote>
-        "我们相信，陪伴是相互的。它用一生治愈了你，<br>
-        最后这一程，也值得被温柔以待。"
-      </blockquote>
-      <p style="margin-bottom:16px">沐光宠语由一群真正爱过宠物的人创办。我们不推销、不催促、不冷漠流程化。在这里，你可以哭，可以慢慢告别，可以把没说出口的话都说完。</p>
-      <a href="booking.html" class="btn">联系我们 →</a>
+      <h2 id="philoTitle">它不是一只动物，它是家人。</h2>
+      <blockquote id="philoQuote">我们相信，陪伴是相互的。它用一生治愈了你，最后这一程，也值得被温柔以待。</blockquote>
+      <p id="philoBody" style="margin-bottom:16px">沐光宠语由一群真正爱过宠物的人创办。</p>
+      <a href="/booking" class="btn">联系我们 →</a>
     </div>
   </div>
 </section>
 
-<!-- 联系带 -->
 <section class="contact-band">
   <div class="container">
     <h2>此刻，我们在你身边</h2>
     <p>无论白天还是深夜，拨通电话，就有人轻声回应你。</p>
-    <div class="phone">400-820-XXXX</div>
+    <div class="phone" id="hotlineBig">400-820-XXXX</div>
     <div style="margin-top:28px">
-      <a href="booking.html" class="btn btn-solid" style="background:#E8D5BE;color:var(--ink);border:none">在线提交预约</a>
+      <a href="/booking" class="btn btn-solid" style="background:#E8D5BE;color:var(--ink);border:none">在线提交预约</a>
     </div>
   </div>
 </section>
@@ -211,40 +116,42 @@
 <footer>
   <div class="container">
     <div class="foot-grid">
-      <div>
-        <h4>沐光宠语</h4>
-        <p style="line-height:1.8">一家有温度的宠物善终服务机构。<br>让每一只离开的毛孩子，都被温柔送别。</p>
-      </div>
-      <div>
-        <h4>服务项目</h4>
-        <ul>
-          <li><a href="#services">上门接宠</a></li>
-          <li><a href="#services">净身美容</a></li>
-          <li><a href="#services">告别仪式</a></li>
-          <li><a href="#services">独立火化</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>纪念方式</h4>
-        <ul>
-          <li><a href="#services">骨灰罐</a></li>
-          <li><a href="#services">晶石吊坠</a></li>
-          <li><a href="#services">爪印纪念</a></li>
-          <li><a href="#services">安息林树葬</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>联系我们</h4>
-        <ul>
-          <li><a href="booking.html">在线预约</a></li>
-          <li><a href="#">服务协议</a></li>
-          <li><a href="#">隐私声明</a></li>
-        </ul>
-      </div>
+      <div><h4>沐光宠语</h4><p style="line-height:1.8">一家有温度的宠物善终服务机构。<br>让每一只离开的毛孩子，都被温柔送别。</p></div>
+      <div><h4>服务项目</h4><ul><li><a href="#services">上门接宠</a></li><li><a href="#services">净身美容</a></li><li><a href="#services">告别仪式</a></li><li><a href="#services">独立火化</a></li></ul></div>
+      <div><h4>纪念方式</h4><ul><li><a href="#services">骨灰罐</a></li><li><a href="#services">晶石吊坠</a></li><li><a href="#services">爪印纪念</a></li><li><a href="#services">安息林树葬</a></li></ul></div>
+      <div><h4>联系我们</h4><ul><li><a href="/booking">在线预约</a></li><li><a href="#">服务协议</a></li><li><a href="#">隐私声明</a></li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 沐光宠语 MuGuang Pet Memorial · 让爱与记忆，温柔延续</div>
   </div>
 </footer>
 
+<script>
+fetch('content.json').then(r=>r.json()).then(c=>{
+  document.getElementById('brandName').textContent = c.brand.name;
+  document.getElementById('brandNameEn').textContent = c.brand.nameEn;
+  document.getElementById('logoMark').textContent = c.brand.logoEmoji;
+  document.getElementById('hotlineTop').textContent = '24小时善终热线 · ' + c.hotline;
+  document.getElementById('hotlineBig').textContent = c.hotline;
+  document.getElementById('heroTitle1').textContent = c.hero.title1;
+  document.getElementById('heroTitle2').textContent = c.hero.title2;
+  document.getElementById('heroSubtitle').textContent = c.hero.subtitle;
+  document.getElementById('philoTitle').innerHTML = c.philosophy.title;
+  document.getElementById('philoQuote').textContent = c.philosophy.quote;
+  document.getElementById('philoBody').textContent = c.philosophy.body;
+
+  // services
+  document.getElementById('servicesGrid').innerHTML = c.services.map(s=>`
+    <div class="card"><div class="icon">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+
+  // plans
+  document.getElementById('plansGrid').innerHTML = c.plans.map(p=>`
+    <div class="plan${p.featured?' featured':''}">
+      <h3>${p.name}</h3>
+      <div class="price">${p.price} <small>${p.unit}</small></div>
+      <ul>${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+      <a href="/booking" class="btn" style="text-align:center">预约此套餐</a>
+    </div>`).join('');
+});
+</script>
 </body>
 </html>
