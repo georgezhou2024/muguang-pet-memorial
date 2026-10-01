@@ -14,18 +14,23 @@
     "ink": "#3E342B",
     "bg": "#FDFBF8",
     "bgSoft": "#F5EFE6",
-    "line": "#E8DDD0"
+    "line": "#E8DDD0",
+    "fontHeading": "'Noto Serif SC',serif",
+    "fontBody": "'Noto Serif SC',serif",
+    "headWeight": "400",
+    "bodySize": "16"
   },
   "images": {
     "heroPhoto": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841245746_a043641891e8b9bb510153c65ab5c72f.jpg",
     "block1Img": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840970873_1ec42ab58009cb0a6aaee8e6262cc6cb.jpg",
-    "block2Img": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840977175_e04d1750976a38e48315db8e1670a377.jpg",
+    "block2Img": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790843447346_fb752d99162458f6e9ea397e857362cb.jpg",
     "aboutImg": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840993113_b53017a9f89fc39e2f774fe59ae4845b.jpg",
+    "heroVideo": "",
     "gallery": [
-      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840834189_8d00549a937df2e18f484b2391c024d2.jpg",
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790843422130_831292658513ff7e756bb8479b09da76.jpg",
       "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840836856_b53017a9f89fc39e2f774fe59ae4845b.jpg",
-      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840840951_3308b5252a94917da99c8e807a7fd209.jpg",
-      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840847060_3609fd85467c6f37b0b8dcd3c7974933.jpg"
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790843400240_dd497d956f3b27625c71e7d063643003.jpg",
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790843432810_868f6f34e42df9aa3da7f8d7dab5df8a.jpg"
     ]
   },
   "hero": {
