@@ -3,17 +3,17 @@
     "name": "沐光宠语",
     "nameEn": "MU GUANG CHONG YU",
     "logoEmoji": "🕯️",
-    "logoImage": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841145547_ef50119d-eb7c-4b16-aa23-d29fd4c9d5f1.png"
+    "logoImage": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790852347386___3d____logo.png"
   },
   "hotline": "13426426249",
   "address": "",
   "theme": {
-    "brand": "#B8743A",
-    "brandDark": "#9A5D2E",
+    "brand": "#837a72",
+    "brandDark": "#837a72",
     "brandSoft": "#E8D5BE",
-    "ink": "#3a322c",
-    "bg": "#b8743a",
-    "bgSoft": "#b8743a",
+    "ink": "#d2cbc6",
+    "bg": "#64615e",
+    "bgSoft": "#7c726a",
     "line": "#d0cac3",
     "cardBg": "#c7c0bd",
     "fontHeading": "'Noto Sans SC',sans-serif",
@@ -192,10 +192,10 @@
     "contact"
   ],
   "textStyles": {
-    "f_brandName_color": "#e6e0db",
-    "f_brandNameEn_color": "#d5cec8",
-    "f_logoEmoji_color": "#ddc5b1",
-    "f_hotline_color": "#ddd6cf",
+    "f_brandName_color": "#3e342b",
+    "f_brandNameEn_color": "#3e342b",
+    "f_logoEmoji_color": "#3e342b",
+    "f_hotline_color": "#3e342b",
     "f_address_color": "#3e342b",
     "f_heroMark_color": "#3e342b",
     "f_heroBtn1_color": "#3e342b",
