@@ -45,8 +45,8 @@
     "subtitle": "十二年的陪伴，值得一场温柔的告别。沐光宠语以尊严与敬意，陪你走完这最后一段路。",
     "btn1": "立即预约告别",
     "btn2": "了解告别流程",
-    "hero1Font": "",
-    "hero1Color": "#3e342b",
+    "hero1Font": "'ZCOOL QingKe HuangYou',sans-serif",
+    "hero1Color": "#e9e0d8",
     "hero2Font": "",
     "hero2Color": "#b8743a",
     "subFont": "",
@@ -55,7 +55,9 @@
   "gallerySection": {
     "eyebrow": "OUR SPACE",
     "title": "这里，是它最后的温柔港湾",
-    "subtitle": "独立告别室、暖光白菊、柔软小毯——每一处细节，都为它而设。"
+    "subtitle": "独立告别室、暖光白菊、柔软小毯——每一处细节，都为它而设。",
+    "titleFont": "",
+    "titleColor": "#3e342b"
   },
   "blocks": [
     {
@@ -178,5 +180,15 @@
   "footer": {
     "desc": "一家有温度的宠物善终服务机构。让每一只离开的毛孩子，都被温柔送别。",
     "copyright": "© 2026 沐光宠语 MuGuang Pet Memorial · 让爱与记忆，温柔延续"
-  }
+  },
+  "sectionOrder": [
+    "hero",
+    "gallery",
+    "blocks",
+    "services",
+    "process",
+    "plans",
+    "philosophy",
+    "contact"
+  ]
 }
