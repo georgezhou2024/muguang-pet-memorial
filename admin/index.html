@@ -414,6 +414,14 @@ function showTab(name, btn){
   btn.classList.add('active');
 }
 
+function copyBooking(btn){
+  const msg = decodeURIComponent(btn.dataset.msg);
+  navigator.clipboard.writeText(msg).then(()=>{
+    btn.textContent = '✅ 已复制';
+    setTimeout(()=>btn.textContent='📋 复制',1500);
+  });
+}
+
 async function showBookings(btn){
   showTab('bookings', btn);
   const list = document.getElementById('bookingsList');
@@ -433,6 +441,7 @@ async function showBookings(btn){
           <div>📦 意向套餐：${b.plan||''}</div>
           ${b.wish?`<div>💬 心愿：${b.wish}</div>`:''}
         </div>
+        <button onclick="copyBooking(this)" data-msg="${encodeURIComponent(`预约#${i+1}\n称呼：${b.name||''}\n手机：${b.phone||''}\n宠物：${b.petType||''} ${b.petName||''}\n时间：${b.time||''}\n地址：${b.address||''}\n套餐：${b.plan||''}${b.wish?`\n心愿：${b.wish}`:''}`)}" style="margin-top:10px;padding:6px 14px;background:#B8743A;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:12px">📋 复制</button>
       </div>`).join('');
   }catch(e){
     list.innerHTML = '<p style="color:#c0392b">加载失败：'+e+'</p>';
