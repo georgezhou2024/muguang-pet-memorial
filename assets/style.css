@@ -110,7 +110,7 @@ nav a:hover,nav a.active{color:var(--brand)}
   display:grid;grid-template-columns:1fr 1fr;gap:30px;
 }
 .block-card{
-  background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  background:var(--card-bg,#fff);border:1px solid var(--line);border-radius:10px;overflow:hidden;
   transition:.3s;
 }
 .block-card:hover{box-shadow:0 12px 32px rgba(184,116,58,.12)}
@@ -134,7 +134,7 @@ nav a:hover,nav a.active{color:var(--brand)}
 
 /* 服务卡 */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:#fff;border:1px solid var(--line);padding:40px 28px;text-align:center;transition:.3s;border-radius:8px}
+.card{background:var(--card-bg,#fff);border:1px solid var(--line);padding:40px 28px;text-align:center;transition:.3s;border-radius:8px}
 .card:hover{box-shadow:0 12px 32px rgba(184,116,58,.12);transform:translateY(-3px)}
 .card .icon{font-size:44px;margin-bottom:18px}
 .card h3{font-size:19px;margin-bottom:10px;letter-spacing:1px}
@@ -142,7 +142,7 @@ nav a:hover,nav a.active{color:var(--brand)}
 
 /* 流程时间线 */
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
-.step{background:#fff;border:1px solid var(--line);padding:32px 22px;border-radius:8px;position:relative}
+.step{background:var(--card-bg,#fff);border:1px solid var(--line);padding:32px 22px;border-radius:8px;position:relative}
 .step::before{
   counter-increment:step;content:counter(step,decimal-leading-zero);
   position:absolute;top:16px;right:20px;font-size:28px;color:var(--brand-soft);font-weight:600;
@@ -154,7 +154,7 @@ nav a:hover,nav a.active{color:var(--brand)}
 
 /* 套餐 */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-.plan{background:#fff;border:1px solid var(--line);padding:36px 28px;border-radius:10px;display:flex;flex-direction:column}
+.plan{background:var(--card-bg,#fff);border:1px solid var(--line);padding:36px 28px;border-radius:10px;display:flex;flex-direction:column}
 .plan.featured{border:2px solid var(--brand);position:relative}
 .plan.featured::before{content:"最受欢迎";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:12px;padding:4px 16px;border-radius:12px;letter-spacing:2px}
 .plan h3{font-size:18px;margin-bottom:6px;letter-spacing:2px}
