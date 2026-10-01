@@ -192,10 +192,10 @@
     "contact"
   ],
   "textStyles": {
-    "f_brandName_color": "#e6e0db",
-    "f_brandNameEn_color": "#d5cec8",
-    "f_logoEmoji_color": "#ddc5b1",
-    "f_hotline_color": "#ddd6cf",
+    "f_brandName_color": "#3e342b",
+    "f_brandNameEn_color": "#3e342b",
+    "f_logoEmoji_color": "#3e342b",
+    "f_hotline_color": "#3e342b",
     "f_address_color": "#3e342b",
     "f_heroMark_color": "#3e342b",
     "f_heroBtn1_color": "#3e342b",
@@ -214,7 +214,7 @@
     "f_block2Link_color": "#3e342b",
     "svc_0_icon_color": "#3e342b",
     "svc_0_title_color": "#3e342b",
-    "svc_0_desc_color": "#3e342b",
+    "svc_0_desc_color": "#e4d8cd",
     "svc_1_icon_color": "#3e342b",
     "svc_1_title_color": "#3e342b",
     "svc_1_desc_color": "#3e342b",
