@@ -30,8 +30,8 @@ img{max-width:100%;display:block}
 header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
 .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .logo{display:flex;align-items:center;gap:14px}
-.logo-mark{width:60px;height:60px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;overflow:hidden}
-.logo-text{font-size:24px;color:var(--ink);letter-spacing:4px;font-weight:600;line-height:1.2}
+.logo-mark{width:72px;height:72px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;color:#fff;font-size:36px;overflow:hidden;flex-shrink:0}
+.logo-text{font-size:26px;color:var(--ink);letter-spacing:4px;font-weight:600;line-height:1.2}
 .logo-text small{display:block;font-family:'Poppins',sans-serif;font-size:10px;letter-spacing:3px;color:var(--text);font-weight:400}
 nav ul{display:flex;gap:36px;list-style:none;align-items:center}
 nav a{color:var(--ink);font-size:15px;letter-spacing:1px}
