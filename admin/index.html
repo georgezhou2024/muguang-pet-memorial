@@ -841,30 +841,27 @@ function closeMedia(){
 }
 function onFileChosen(input){
   const file = input.files[0]; if(!file) return;
+  input.value=''; // 清空避免重复触发
   const [hiddenId, pvId] = document.getElementById('uploadTarget').value.split('|');
   const reader = new FileReader();
   reader.onload = async function(e){
     const dataUrl = e.target.result;
-    const btn = document.querySelector(`#${pvId}`).parentElement.querySelector('button');
-    if(btn){ btn.disabled=true; btn.textContent='上传中...'; }
+    const pv = document.getElementById(pvId);
+    pv.innerHTML = '<span style="font-size:12px;color:#999">上传中...</span>';
     try{
       const r = await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:file.name,dataUrl})});
       const j = await r.json();
       if(j.ok){
         document.getElementById(hiddenId).value = j.url;
         updatePreview(pvId, j.url);
-        if(btn){ btn.disabled=false; btn.textContent='重新上传'; }
       } else {
         alert('上传失败: '+(j.error||''));
-        if(btn){ btn.disabled=false; btn.textContent='重试'; }
       }
     }catch(err){
       alert('网络错误: '+err);
-      if(btn){ btn.disabled=false; btn.textContent='重试'; }
     }
   };
   reader.readAsDataURL(file);
-  input.value='';
 }
 
 async function doSave(){
