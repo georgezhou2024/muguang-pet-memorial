@@ -515,8 +515,12 @@ function copyBooking(btn){
 // 自动给所有文字字段注入 色卡+粗细+字距
 function injectTextTools(){
   const fields = document.querySelectorAll('input[type=text], input:not([type]), textarea');
+  // 跳过已有手动色卡的字段
+  const skip = ['f_hero1','f_hero2','f_heroSub','f_galleryTitle'];
   fields.forEach((f,i)=>{
     if(f.dataset.tools) return;
+    if(skip.includes(f.id)) return;
+    if(!f.id) return;
     f.dataset.tools = '1';
     const wrap = document.createElement('div');
     wrap.className = 'text-tools';
@@ -532,7 +536,6 @@ function injectTextTools(){
       </select>
       <label>距</label><input type="number" data-for="${f.id}" class="tt-spacing" min="0" max="10" step="0.5" placeholder="0">
     `;
-    // 实时预览
     wrap.querySelector('.tt-color').addEventListener('input', e=>{ f.style.color = e.target.value; });
     wrap.querySelector('.tt-weight').addEventListener('change', e=>{ if(e.target.value) f.style.fontWeight = e.target.value; else f.style.fontWeight=''; });
     wrap.querySelector('.tt-spacing').addEventListener('input', e=>{ f.style.letterSpacing = e.target.value ? e.target.value+'px' : ''; });
@@ -653,7 +656,8 @@ async function showAdmin(){
   const r = await fetch('/api/content');
   content = await r.json();
   fillForm();
-  // 自动注入已禁用，避免冲突
+  injectTextTools();
+  if(content.textStyles) applyTextStyles(content.textStyles);
 }
 
 function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
