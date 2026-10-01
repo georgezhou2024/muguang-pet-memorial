@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>爱宠动物医院 — 您身边的专业兽医</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<!-- 高德地图 JS：把 YOUR_AMAP_KEY 换成你在 lbs.amap.com 申请的 Web端(JS API) Key -->
+<script src="https://webapi.amap.com/maps?v=2.0&key=YOUR_AMAP_KEY" defer></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="emergency">24小时急诊：400-000-1200</span>
+    <span>中文 / EN</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="logo-mark">🐾</div>
+      <div class="logo-text">爱宠动物医院<small>LOVE PET HOSPITAL</small></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#services">医疗服务</a></li>
+        <li><a href="#wellness">健康套餐</a></li>
+        <li><a href="consult.html">在线问诊</a></li>
+        <li><a href="#locations">分院查询</a></li>
+        <li><a href="booking.html" class="nav-cta">预约挂号</a></li>
+      </ul>
+    </nav>
+    <button class="burger">☰</button>
+  </div>
+</header>
+
+<section class="hero-img"></section>
+
+<section class="container hero-text">
+  <h1>您身边的<br><span class="accent">专业预防式宠物医疗</span></h1>
+  <p>毛孩子陪伴您每一刻，也请让专业兽医守护它们的健康。我们在全城设有 12 家分院，提供健康体检、疫苗接种、影像诊断、内科诊疗等一站式服务。</p>
+  <div class="btn-row">
+    <a href="booking.html" class="btn">立即预约</a>
+    <a href="consult.html" class="btn">在线问诊</a>
+  </div>
+</section>
+
+<section class="container">
+  <div class="features">
+    <div class="feature">
+      <div class="thumb thumb-orange">🏥</div>
+      <div>
+        <h3>像家人一样<br><span class="accent">对待每只宠物</span></h3>
+        <a href="#" class="link">了解我们 →</a>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="thumb thumb-teal">✨</div>
+      <div>
+        <h3>让爱宠<span class="accent">焕发健康光彩</span></h3>
+        <a href="#" class="link">了解详情 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft" id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>我们提供的<span class="accent">医疗服务</span></h2>
+      <p>从日常预防到专科诊疗，为您的爱宠提供全生命周期的健康照护</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="icon">🩺</div><h3>健康体检</h3><p>全面体格检查 + 血常规生化，早期发现潜在健康问题。</p><a href="booking.html">预约体检 →</a></div>
+      <div class="card"><div class="icon">💉</div><h3>疫苗接种</h3><p>猫三联 / 犬四联 / 狂犬疫苗，规范免疫建档与提醒。</p><a href="booking.html">查看疫苗方案 →</a></div>
+      <div class="card"><div class="icon">🦷</div><h3>口腔护理</h3><p>超声波洁牙、口腔检查与牙科疾病治疗，告别口臭。</p><a href="booking.html">了解更多 →</a></div>
+      <div class="card"><div class="icon">🔬</div><h3>影像诊断</h3><p>DR 数字化拍片 / B 超 / 内窥镜，精准定位病因。</p><a href="booking.html">了解更多 →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="wellness">
+  <div class="container wellness">
+    <div class="visual">🐕</div>
+    <div>
+      <h2>预防式健康套餐<br><span class="accent">全年守护，按月付费</span></h2>
+      <p>不同于单次就诊，健康套餐涵盖一整年的体检、疫苗、驱虫和无限次问诊，让防病胜过治病。</p>
+      <ul>
+        <li>幼犬 / 幼猫成长套餐</li>
+        <li>成犬 / 成猫年度体检套餐</li>
+        <li>老年宠物专属养护套餐</li>
+        <li>含无限次复诊与在线问诊</li>
+      </ul>
+      <a href="booking.html" class="btn btn-solid">查看套餐详情</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-soft" id="locations">
+  <div class="finder">
+    <div class="finder-left">
+      <h2>我们就在<span class="accent">您家附近</span></h2>
+      <p>输入所在区域或街道，查找最近的爱宠动物医院。</p>
+      <div class="search-box">
+        <input type="text" placeholder="输入区/街道，例如：三里屯">
+        <button onclick="alert('接入搜索后端后可用')">🔍</button>
+      </div>
+      <a href="#">查看全部分院 →</a>
+    </div>
+    <!-- 高德地图挂载点：替换 Key 后自动渲染 -->
+    <div id="amap">
+      🗺️ 地图加载区<br><small>把 &lt;head&gt; 里脚本的 YOUR_AMAP_KEY 换成你的高德 Key 即可显示分院位置</small>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resources">
+  <div class="container">
+    <div class="section-head">
+      <h2>养宠<span class="accent">健康百科</span></h2>
+      <p>来自执业兽医的专业科普，帮助您在家也能科学照护爱宠</p>
+    </div>
+    <div class="cards">
+      <div class="resource-card">
+        <div class="rc-visual rc1">🐾</div>
+        <div class="rc-body"><h3>新手养狗指南</h3><p>刚接狗狗回家？从疫苗、饮食到如厕训练，一篇讲清。</p><a href="#">阅读文章 →</a></div>
+      </div>
+      <div class="resource-card">
+        <div class="rc-visual rc2">🐈</div>
+        <div class="rc-body"><h3>猫咪皮肤与毛发</h3><p>猫癣、跳蚤、掉毛……常见皮肤问题的原因与居家护理。</p><a href="#">阅读文章 →</a></div>
+      </div>
+      <div class="resource-card">
+        <div class="rc-visual rc3">🐶</div>
+        <div class="rc-body"><h3>老年宠物养护</h3><p>7 岁以上猫狗的饮食调整、关节护理与定期体检要点。</p><a href="#">阅读文章 →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appcta">
+  <div class="container">
+    <h2>下载爱宠医院 App</h2>
+    <p>在线预约、疫苗提醒、健康档案一键管理</p>
+    <div class="store-badges">
+      <div class="store-badge"> App Store 下载</div>
+      <div class="store-badge">▶ 安卓应用市场</div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <h2>订阅养宠提醒与优惠</h2>
+    <p>第一时间收到疫苗提醒、分院活动和养宠科普</p>
+    <form onsubmit="event.preventDefault();alert('订阅成功！')">
+      <input type="email" placeholder="输入您的邮箱" required>
+      <button type="submit">订阅</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div><h4>爱宠动物医院</h4><p>全国连锁宠物医疗机构，致力于为每一只宠物提供高质量的预防式医疗服务。</p></div>
+      <div><h4>产品与服务</h4><ul><li><a href="#">兽医诊疗</a></li><li><a href="#">健康套餐</a></li><li><a href="consult.html">在线问诊</a></li><li><a href="#">宠物药品</a></li></ul></div>
+      <div><h4>养宠百科</h4><ul><li><a href="#">幼犬护理</a></li><li><a href="#">幼猫护理</a></li><li><a href="#">疫苗指南</a></li><li><a href="#">寄生虫预防</a></li></ul></div>
+      <div><h4>关于我们</h4><ul><li><a href="#">品牌故事</a></li><li><a href="#">加入我们</a></li><li><a href="#">公益基金会</a></li><li><a href="#">联系我们</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 爱宠动物医院 Love Pet Hospital · 本站为设计模板</div>
+  </div>
+</footer>
+
+<script>
+// 高德地图初始化（Key 替换后生效）
+window.addEventListener('load', () => {
+  if (typeof AMap !== 'undefined') {
+    const map = new AMap.Map('amap', { zoom: 12, center: [116.455, 39.922] }); // 默认定位北京三里屯
+    new AMap.Marker({ position: [116.455, 39.922], map: map });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 临时文件
+*.log
+node_modules/
+
+# 参考用源码（不部署到线上）
+banfield_source.html
