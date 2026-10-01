@@ -3,9 +3,9 @@
     "name": "沐光宠语",
     "nameEn": "MU GUANG CHONG YU",
     "logoEmoji": "🕯️",
-    "logoImage": ""
+    "logoImage": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841145547_ef50119d-eb7c-4b16-aa23-d29fd4c9d5f1.png"
   },
-  "hotline": "jeff",
+  "hotline": "13426426249",
   "address": "",
   "theme": {
     "brand": "#B8743A",
@@ -17,12 +17,16 @@
     "line": "#E8DDD0"
   },
   "images": {
-    "heroBg": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840620413_8d00549a937df2e18f484b2391c024d2.jpg",
-    "aboutImg": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840629007_45f990e521053816ab8105b2f366c322.jpg",
-    "heroPhoto": "",
-    "gallery": ["", "", "", ""],
-    "block1Img": "",
-    "block2Img": ""
+    "heroPhoto": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841245746_a043641891e8b9bb510153c65ab5c72f.jpg",
+    "block1Img": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840970873_1ec42ab58009cb0a6aaee8e6262cc6cb.jpg",
+    "block2Img": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840977175_e04d1750976a38e48315db8e1670a377.jpg",
+    "aboutImg": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840993113_b53017a9f89fc39e2f774fe59ae4845b.jpg",
+    "gallery": [
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840834189_8d00549a937df2e18f484b2391c024d2.jpg",
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840836856_b53017a9f89fc39e2f774fe59ae4845b.jpg",
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840840951_3308b5252a94917da99c8e807a7fd209.jpg",
+      "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790840847060_3609fd85467c6f37b0b8dcd3c7974933.jpg"
+    ]
   },
   "hero": {
     "mark": "🌈",
@@ -54,23 +58,101 @@
     }
   ],
   "services": [
-    {"icon": "🚗", "title": "24小时上门接宠", "desc": "无论深夜还是清晨，专车专人接宠上门。独立车厢，温柔安置，不让毛孩子再受颠簸。"},
-    {"icon": "🛁", "title": "净身美容", "desc": "由专业技师为它擦拭、梳理、修剪指甲，换上干净柔软的小毯子，像它睡觉时那样安详。"},
-    {"icon": "🕯️", "title": "专属告别仪式", "desc": "独立告别室，暖光、白菊、轻柔音乐。你可以最后一次抱抱它、说说话，从容告别。"},
-    {"icon": "🔥", "title": "独立火化", "desc": "一对一单独火化，绝不混炉。全程可视或可录像，让你确信：这一份骨灰，完完整整属于它。"},
-    {"icon": "🏺", "title": "骨灰纪念", "desc": "骨灰罐、晶石吊坠、爪印泥、毛发纪念盒……用一种可以带回家的方式，继续陪伴。"},
-    {"icon": "🌳", "title": "安息林安葬", "desc": "郊区纪念林提供树葬、花葬位，四季常青。每年清明，你都有一个可以回来看看的地方。"}
+    {
+      "icon": "🚗",
+      "title": "24小时上门接宠",
+      "desc": "无论深夜还是清晨，专车专人接宠上门。独立车厢，温柔安置，不让毛孩子再受颠簸。"
+    },
+    {
+      "icon": "🛁",
+      "title": "净身美容",
+      "desc": "由专业技师为它擦拭、梳理、修剪指甲，换上干净柔软的小毯子，像它睡觉时那样安详。"
+    },
+    {
+      "icon": "🕯️",
+      "title": "专属告别仪式",
+      "desc": "独立告别室，暖光、白菊、轻柔音乐。你可以最后一次抱抱它、说说话，从容告别。"
+    },
+    {
+      "icon": "🔥",
+      "title": "独立火化",
+      "desc": "一对一单独火化，绝不混炉。全程可视或可录像，让你确信：这一份骨灰，完完整整属于它。"
+    },
+    {
+      "icon": "🏺",
+      "title": "骨灰纪念",
+      "desc": "骨灰罐、晶石吊坠、爪印泥、毛发纪念盒……用一种可以带回家的方式，继续陪伴。"
+    },
+    {
+      "icon": "🌳",
+      "title": "安息林安葬",
+      "desc": "郊区纪念林提供树葬、花葬位，四季常青。每年清明，你都有一个可以回来看看的地方。"
+    }
   ],
   "process": [
-    {"icon": "📞", "title": "来电咨询", "desc": "拨通热线，客服会轻声了解情况，告诉你接下来会发生什么，不会催促你做任何决定。"},
-    {"icon": "🚙", "title": "接宠净身", "desc": "专车接回，净身、梳理、安置在柔软的告别室，你可以选择陪它最后一段时光。"},
-    {"icon": "🌷", "title": "告别仪式", "desc": "在独立告别室里，鞠躬、献花、告别。你可以拍照、写信、播放它喜欢的音乐。"},
-    {"icon": "✨", "title": "骨灰归还", "desc": "独立火化后，骨灰装入你选定的纪念容器。可带回家、可安葬安息林、可做成晶石。"}
+    {
+      "icon": "📞",
+      "title": "来电咨询",
+      "desc": "拨通热线，客服会轻声了解情况，告诉你接下来会发生什么，不会催促你做任何决定。"
+    },
+    {
+      "icon": "🚙",
+      "title": "接宠净身",
+      "desc": "专车接回，净身、梳理、安置在柔软的告别室，你可以选择陪它最后一段时光。"
+    },
+    {
+      "icon": "🌷",
+      "title": "告别仪式",
+      "desc": "在独立告别室里，鞠躬、献花、告别。你可以拍照、写信、播放它喜欢的音乐。"
+    },
+    {
+      "icon": "✨",
+      "title": "骨灰归还",
+      "desc": "独立火化后，骨灰装入你选定的纪念容器。可带回家、可安葬安息林、可做成晶石。"
+    }
   ],
   "plans": [
-    {"name": "暖暖包", "price": "¥680", "unit": "起", "featured": false, "items": ["专车接宠（市区内）","基础净身与梳理","15 分钟独立告别室","集体火化","简易骨灰盒"]},
-    {"name": "沐光包", "price": "¥1,280", "unit": "起", "featured": true, "items": ["专车接宠（全城）","精致净身美容","30 分钟告别仪式 · 鲜花布置","独立一对一火化","陶瓷骨灰罐 + 爪印泥","告别仪式录像"]},
-    {"name": "永念包", "price": "¥2,680", "unit": "起", "featured": false, "items": ["专属顾问全程陪伴","深度净身与服饰穿戴","60 分钟定制告别仪式","独立火化 + 全程可视","晶石吊坠 / 骨灰罐二选一","安息林纪念位 10 年使用权"]}
+    {
+      "name": "暖暖包",
+      "price": "¥680",
+      "unit": "起",
+      "featured": false,
+      "items": [
+        "专车接宠（市区内）",
+        "基础净身与梳理",
+        "15 分钟独立告别室",
+        "集体火化",
+        "简易骨灰盒"
+      ]
+    },
+    {
+      "name": "沐光包",
+      "price": "¥1,280",
+      "unit": "起",
+      "featured": true,
+      "items": [
+        "专车接宠（全城）",
+        "精致净身美容",
+        "30 分钟告别仪式 · 鲜花布置",
+        "独立一对一火化",
+        "陶瓷骨灰罐 + 爪印泥",
+        "告别仪式录像"
+      ]
+    },
+    {
+      "name": "永念包",
+      "price": "¥2,680",
+      "unit": "起",
+      "featured": false,
+      "items": [
+        "专属顾问全程陪伴",
+        "深度净身与服饰穿戴",
+        "60 分钟定制告别仪式",
+        "独立火化 + 全程可视",
+        "晶石吊坠 / 骨灰罐二选一",
+        "安息林纪念位 10 年使用权"
+      ]
+    }
   ],
   "philosophy": {
     "title": "它不是一只动物，它是家人。",
