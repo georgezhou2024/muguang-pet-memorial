@@ -28,30 +28,30 @@
     <div id="formView">
       <h1>预约告别</h1>
       <p class="sub">请填写以下信息。提交后，善终顾问会在 15 分钟内致电你，全程轻声沟通，绝不催促。</p>
-      <form onsubmit="return submitForm(event)">
+      <form id="bookingForm" onsubmit="return submitForm(event)">
         <div class="form-row">
-          <div class="form-group"><label>您的称呼 *</label><input required placeholder="如：林小姐"></div>
-          <div class="form-group"><label>手机号码 *</label><input required type="tel" pattern="1\d{10}" placeholder="11 位手机号"></div>
+          <div class="form-group"><label>您的称呼 *</label><input required id="f_name" placeholder="如：林小姐"></div>
+          <div class="form-group"><label>手机号码 *</label><input required type="tel" pattern="1\d{10}" id="f_phone" placeholder="11 位手机号"></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label>宠物类型 *</label>
-            <select required><option value="">请选择</option><option>狗狗</option><option>猫咪</option><option>兔兔 / 龙猫</option><option>其他</option></select>
+            <select required id="f_petType"><option value="">请选择</option><option>狗狗</option><option>猫咪</option><option>兔兔 / 龙猫</option><option>其他</option></select>
           </div>
-          <div class="form-group"><label>宠物名字 / 年纪</label><input placeholder="如：豆豆 · 12岁"></div>
+          <div class="form-group"><label>宠物名字 / 年纪</label><input id="f_petName" placeholder="如：豆豆 · 12岁"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>期望服务时间 *</label><input required type="datetime-local"></div>
-          <div class="form-group"><label>接宠地址 *</label><input required placeholder="小区 / 楼栋"></div>
+          <div class="form-group"><label>期望服务时间 *</label><input required type="datetime-local" id="f_time"></div>
+          <div class="form-group"><label>接宠地址 *</label><input required id="f_address" placeholder="小区 / 楼栋"></div>
         </div>
         <div class="form-group"><label>意向套餐 *</label>
-          <select required id="planSelect">
+          <select required id="f_plan">
             <option value="">请选择</option>
           </select>
         </div>
         <div class="form-group"><label>想对它说的话 / 特殊心愿（选填）</label>
-          <textarea rows="4" placeholder="例如：想给它放一段它小时候的视频；想保留一缕它的毛发……"></textarea>
+          <textarea rows="4" id="f_wish" placeholder="例如：想给它放一段它小时候的视频；想保留一缕它的毛发……"></textarea>
         </div>
-        <button type="submit" class="btn btn-solid" style="width:100%;border:none">提交预约</button>
+        <button type="submit" class="btn btn-solid" style="width:100%;border:none" id="submitBtn">提交预约</button>
         <div class="form-note">我们承诺：不电话轰炸、不逼单、不在你情绪低落时推销升级套餐。你可以随时取消或更改。</div>
       </form>
     </div>
@@ -59,7 +59,13 @@
       <div class="big">✨</div>
       <h2>预约已收到</h2>
       <p class="sub" style="margin-top:12px">善终顾问将在 15 分钟内致电，请保持电话畅通。<br>这一程，我们陪你走。</p>
-      <a href="index.html" class="btn" style="margin-top:16px">返回首页</a>
+      <a href="index.html" class="btn btn-outline" style="margin-top:16px">返回首页</a>
+    </div>
+    <div id="errorView" class="success-box" style="display:none">
+      <div class="big">😢</div>
+      <h2>提交失败</h2>
+      <p class="sub" style="margin-top:12px">网络出了点问题，请直接拨打热线预约。</p>
+      <button class="btn btn-outline" onclick="retryForm()">重试</button>
     </div>
   </div>
 </section>
@@ -67,8 +73,9 @@
 <footer><div class="container foot-bottom" id="footCopyright">© 2026 沐光宠语</div></footer>
 
 <script>
+let content = null;
 fetch('content.json').then(r=>r.json()).then(c=>{
-  // 动态配色
+  content = c;
   const t = c.theme || {};
   const root = document.documentElement.style;
   if(t.brand) root.setProperty('--brand', t.brand);
@@ -78,24 +85,17 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   if(t.bg) root.setProperty('--bg', t.bg);
   if(t.bgSoft) root.setProperty('--bg-soft', t.bgSoft);
   if(t.line) root.setProperty('--line', t.line);
-
   document.getElementById('brandName').textContent = c.brand.name;
   document.getElementById('brandNameEn').textContent = c.brand.nameEn;
   document.getElementById('hotlineTop').textContent = '24小时善终热线 · ' + c.hotline;
   const lm = document.getElementById('logoMark');
-  if(c.brand.logoImage){
-    lm.innerHTML = `<img src="${c.brand.logoImage}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
-  } else {
-    lm.textContent = c.brand.logoEmoji;
-  }
+  if(c.brand.logoImage) lm.innerHTML = `<img src="${c.brand.logoImage}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+  else lm.textContent = c.brand.logoEmoji;
   if(c.footer) document.getElementById('footCopyright').textContent = c.footer.copyright;
-
-  // 套餐下拉
-  const ps = document.getElementById('planSelect');
+  const ps = document.getElementById('f_plan');
   c.plans.forEach(p=>{
     const o = document.createElement('option');
-    o.value = p.name;
-    o.textContent = `${p.name} ${p.price} ${p.unit}${p.featured?'（最受欢迎）':''}`;
+    o.value = p.name; o.textContent = `${p.name} ${p.price} ${p.unit}`;
     ps.appendChild(o);
   });
   const o = document.createElement('option');
@@ -103,12 +103,40 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   ps.appendChild(o);
 });
 
-function submitForm(e){
+async function submitForm(e){
   e.preventDefault();
-  document.getElementById('formView').style.display='none';
-  document.getElementById('successView').style.display='block';
-  window.scrollTo(0,0);
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = '提交中...';
+  const data = {
+    name: document.getElementById('f_name').value,
+    phone: document.getElementById('f_phone').value,
+    petType: document.getElementById('f_petType').value,
+    petName: document.getElementById('f_petName').value,
+    time: document.getElementById('f_time').value,
+    address: document.getElementById('f_address').value,
+    plan: document.getElementById('f_plan').value,
+    wish: document.getElementById('f_wish').value
+  };
+  try{
+    const r = await fetch('/api/booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    if(r.ok){
+      document.getElementById('formView').style.display='none';
+      document.getElementById('successView').style.display='block';
+      window.scrollTo(0,0);
+    } else {
+      throw new Error('fail');
+    }
+  }catch(err){
+    document.getElementById('formView').style.display='none';
+    document.getElementById('errorView').style.display='block';
+  }
   return false;
+}
+function retryForm(){
+  document.getElementById('errorView').style.display='none';
+  document.getElementById('formView').style.display='block';
+  document.getElementById('submitBtn').disabled=false;
+  document.getElementById('submitBtn').textContent='提交预约';
 }
 </script>
 </body>
