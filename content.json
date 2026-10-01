@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "沐光宠语",
-    "nameEn": "MU GUANG CHONG YU",
+    "nameEn": "Jeff老师 我做的怎么样 哈哈哈哈哈哈哈哈",
     "logoEmoji": "🕯️",
     "logoImage": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841145547_ef50119d-eb7c-4b16-aa23-d29fd4c9d5f1.png"
   },
@@ -119,7 +119,7 @@
   "plans": [
     {
       "name": "暖暖包",
-      "price": "¥680",
+      "price": "¥1800",
       "unit": "起",
       "featured": false,
       "items": [
@@ -132,7 +132,7 @@
     },
     {
       "name": "沐光包",
-      "price": "¥1,280",
+      "price": "¥2800",
       "unit": "起",
       "featured": true,
       "items": [
@@ -146,7 +146,7 @@
     },
     {
       "name": "永念包",
-      "price": "¥2,680",
+      "price": "¥5800",
       "unit": "起",
       "featured": false,
       "items": [
