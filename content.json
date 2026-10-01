@@ -15,10 +15,10 @@
     "bg": "#FDFBF8",
     "bgSoft": "#F5EFE6",
     "line": "#E8DDD0",
-    "fontHeading": "'Noto Serif SC',serif",
-    "fontBody": "'Noto Serif SC',serif",
-    "headWeight": "400",
-    "bodySize": "16"
+    "fontHeading": "'Noto Sans SC',sans-serif",
+    "fontBody": "'Noto Sans SC',sans-serif",
+    "headWeight": "700",
+    "bodySize": "17"
   },
   "images": {
     "heroPhoto": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841245746_a043641891e8b9bb510153c65ab5c72f.jpg",
