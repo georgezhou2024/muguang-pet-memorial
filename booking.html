@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>预约挂号 — 爱宠动物医院</title>
+<title>预约告别 · 沐光宠语</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<div class="topbar"><div class="container"><span class="emergency">24小时急诊：400-000-1200</span><span>中文 / EN</span></div></div>
+<div class="topbar"><div class="container"><span class="hotline">24小时善终热线 · 400-820-XXXX</span><span>预约上门接宠</span></div></div>
 
 <header><div class="container nav">
-  <a href="index.html" class="logo"><div class="logo-mark">🐾</div><div class="logo-text">爱宠动物医院<small>LOVE PET HOSPITAL</small></div></a>
+  <a href="index.html" class="logo"><div class="logo-mark">🕯️</div><div class="logo-text">沐光宠语<small>MU GUANG CHONG YU</small></div></a>
   <nav><ul>
-    <li><a href="index.html#services">医疗服务</a></li>
-    <li><a href="index.html#wellness">健康套餐</a></li>
-    <li><a href="consult.html">在线问诊</a></li>
-    <li><a href="index.html#locations">分院查询</a></li>
-    <li><a href="booking.html" class="nav-cta active">预约挂号</a></li>
+    <li><a href="index.html#services">服务项目</a></li>
+    <li><a href="index.html#process">告别流程</a></li>
+    <li><a href="index.html#plans">服务套餐</a></li>
+    <li><a href="booking.html" class="nav-cta active">预约告别</a></li>
   </ul></nav>
   <button class="burger">☰</button>
 </div></header>
@@ -27,43 +26,49 @@
 <section class="form-page">
   <div class="form-wrap">
     <div id="formView">
-      <h1>预约挂号</h1>
-      <p class="sub">填写以下信息，我们的客服会在 30 分钟内与您电话确认。</p>
+      <h1>预约告别</h1>
+      <p class="sub">请填写以下信息。提交后，善终顾问会在 15 分钟内致电你，全程轻声沟通，绝不催促。</p>
       <form onsubmit="return submitForm(event)">
         <div class="form-row">
-          <div class="form-group"><label>您的称呼 *</label><input required placeholder="如：王先生"></div>
-          <div class="form-group"><label>手机号码 *</label><input required type="tel" placeholder="11 位手机号" pattern="1\d{10}"></div>
+          <div class="form-group"><label>您的称呼 *</label><input required placeholder="如：林小姐"></div>
+          <div class="form-group"><label>手机号码 *</label><input required type="tel" pattern="1\d{10}" placeholder="11 位手机号"></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label>宠物类型 *</label>
-            <select required><option value="">请选择</option><option>狗狗</option><option>猫咪</option><option>其他</option></select>
+            <select required><option value="">请选择</option><option>狗狗</option><option>猫咪</option><option>兔兔 / 龙猫</option><option>其他</option></select>
           </div>
-          <div class="form-group"><label>宠物名字</label><input placeholder="如：豆豆"></div>
+          <div class="form-group"><label>宠物名字 / 年纪</label><input placeholder="如：豆豆 · 12岁"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>就诊分院 *</label>
-            <select required><option value="">请选择分院</option><option>三里屯分院</option><option>国贸分院</option><option>中关村分院</option><option>望京分院</option></select>
-          </div>
-          <div class="form-group"><label>就诊日期 *</label><input required type="date"></div>
+          <div class="form-group"><label>期望服务时间 *</label><input required type="datetime-local"></div>
+          <div class="form-group"><label>接宠地址 *</label><input required placeholder="小区 / 楼栋"></div>
         </div>
-        <div class="form-group"><label>就诊项目 *</label>
-          <select required><option value="">请选择</option><option>健康体检</option><option>疫苗接种</option><option>洗澡美容</option><option>内科就诊</option><option>外科手术</option><option>口腔护理</option><option>其他</option></select>
+        <div class="form-group"><label>意向套餐 *</label>
+          <select required>
+            <option value="">请选择</option>
+            <option>暖暖包 ¥680 起</option>
+            <option>沐光包 ¥1,280 起（最受欢迎）</option>
+            <option>永念包 ¥2,680 起</option>
+            <option>暂不确定，需要顾问推荐</option>
+          </select>
         </div>
-        <div class="form-group"><label>症状 / 备注</label><textarea rows="4" placeholder="请简单描述宠物目前的状况（选填）"></textarea></div>
+        <div class="form-group"><label>想对它说的话 / 特殊心愿（选填）</label>
+          <textarea rows="4" placeholder="例如：想给它放一段它小时候的视频；想保留一缕它的毛发……"></textarea>
+        </div>
         <button type="submit" class="btn btn-solid" style="width:100%;border:none">提交预约</button>
-        <div class="form-note">提交后表单数据目前仅在前端演示。接入后端（如 Vercel Serverless + 飞书多维表格 / 腾讯云函数）后即可真实入库并发送短信通知。</div>
+        <div class="form-note">我们承诺：不电话轰炸、不逼单、不在你情绪低落时推销升级套餐。你可以随时取消或更改。</div>
       </form>
     </div>
     <div id="successView" class="success-box">
-      <div class="big">✅</div>
-      <h2>预约提交成功</h2>
-      <p class="sub" style="margin-top:12px">客服将在 30 分钟内致电确认，请保持手机畅通。</p>
+      <div class="big">✨</div>
+      <h2>预约已收到</h2>
+      <p class="sub" style="margin-top:12px">善终顾问将在 15 分钟内致电，请保持电话畅通。<br>这一程，我们陪你走。</p>
       <a href="index.html" class="btn" style="margin-top:16px">返回首页</a>
     </div>
   </div>
 </section>
 
-<footer><div class="container foot-bottom">© 2026 爱宠动物医院 Love Pet Hospital</div></footer>
+<footer><div class="container foot-bottom">© 2026 沐光宠语 · 让爱与记忆，温柔延续</div></footer>
 
 <script>
 function submitForm(e){
