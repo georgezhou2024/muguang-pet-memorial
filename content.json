@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "沐光宠语",
-    "nameEn": "MU GUANG CHONG YU",
+    "nameEn": "Jeff老师 我做的怎么样 哈哈哈哈哈哈哈哈",
     "logoEmoji": "🕯️",
     "logoImage": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841145547_ef50119d-eb7c-4b16-aa23-d29fd4c9d5f1.png"
   },
@@ -11,12 +11,12 @@
     "brand": "#B8743A",
     "brandDark": "#9A5D2E",
     "brandSoft": "#E8D5BE",
-    "ink": "#3E342B",
+    "ink": "#f1e7df",
     "bg": "#7c756e",
     "bgSoft": "#938c85",
     "line": "#E8DDD0",
     "fontHeading": "'Noto Sans SC',sans-serif",
-    "fontBody": "'ZCOOL XiaoWei',serif",
+    "fontBody": "'Noto Sans SC',sans-serif",
     "headWeight": "700",
     "bodySize": "17",
     "radius": "12",
