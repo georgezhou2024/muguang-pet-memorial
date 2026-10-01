@@ -15,7 +15,7 @@
     "bg": "#b8743a",
     "bgSoft": "#b8743a",
     "line": "#d0cac3",
-    "cardBg": "#a8b8d1",
+    "cardBg": "#b94609",
     "fontHeading": "'Noto Sans SC',sans-serif",
     "fontBody": "'Noto Sans SC',sans-serif",
     "headWeight": "700",
@@ -46,7 +46,9 @@
     "hero1Font": "",
     "hero1Color": "#3e342b",
     "hero2Font": "",
-    "hero2Color": "#b8743a"
+    "hero2Color": "#b8743a",
+    "subFont": "",
+    "subColor": "#fff7f0"
   },
   "gallerySection": {
     "eyebrow": "OUR SPACE",
