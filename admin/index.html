@@ -455,6 +455,13 @@
     </div>
   </div>
 
+  <style>
+    .text-tools{display:flex;gap:6px;align-items:center;margin-top:4px;flex-wrap:wrap}
+    .text-tools input[type=color]{width:28px;height:28px;border:1px solid #ddd;border-radius:4px;cursor:pointer;padding:0}
+    .text-tools select{height:28px;font-size:11px;border:1px solid #ddd;border-radius:4px;background:#fff}
+    .text-tools input[type=number]{width:50px;height:28px;font-size:11px;border:1px solid #ddd;border-radius:4px}
+    .text-tools label{font-size:10px;color:#999}
+  </style>
   <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="onFileChosen(this)">
   <input type="hidden" id="uploadTarget">
 
@@ -502,6 +509,58 @@ function copyBooking(btn){
   navigator.clipboard.writeText(msg).then(()=>{
     btn.textContent = '✅ 已复制';
     setTimeout(()=>btn.textContent='📋 复制',1500);
+  });
+}
+
+// 自动给所有文字字段注入 色卡+粗细+字距
+function injectTextTools(){
+  const fields = document.querySelectorAll('input[type=text], input:not([type]), textarea');
+  fields.forEach((f,i)=>{
+    if(f.dataset.tools) return;
+    f.dataset.tools = '1';
+    const wrap = document.createElement('div');
+    wrap.className = 'text-tools';
+    wrap.innerHTML = `
+      <label>色</label><input type="color" data-for="${f.id}" class="tt-color" value="#3E342B">
+      <label>粗</label><select data-for="${f.id}" class="tt-weight">
+        <option value="">默认</option>
+        <option value="300">细</option>
+        <option value="400">常规</option>
+        <option value="500">中等</option>
+        <option value="600">粗</option>
+        <option value="700">特粗</option>
+      </select>
+      <label>距</label><input type="number" data-for="${f.id}" class="tt-spacing" min="0" max="10" step="0.5" placeholder="0">
+    `;
+    f.parentNode.insertBefore(wrap, f.nextSibling);
+  });
+}
+
+function collectTextStyles(){
+  const styles = {};
+  document.querySelectorAll('.tt-color').forEach(el=>{
+    const id = el.dataset.for;
+    if(el.value !== '#3E342B') styles[id+'_color'] = el.value;
+  });
+  document.querySelectorAll('.tt-weight').forEach(el=>{
+    if(el.value) styles[el.dataset.for+'_weight'] = el.value;
+  });
+  document.querySelectorAll('.tt-spacing').forEach(el=>{
+    if(el.value) styles[el.dataset.for+'_spacing'] = el.value;
+  });
+  return styles;
+}
+
+function applyTextStyles(styles){
+  if(!styles) return;
+  Object.keys(styles).forEach(key=>{
+    const parts = key.split('_');
+    const id = parts[0];
+    const type = parts[1];
+    const el = document.getElementById(id);
+    if(!el) return;
+    const input = document.querySelector(`.tt-${type}[data-for="${id}"]`);
+    if(input) input.value = styles[key];
   });
 }
 
@@ -558,6 +617,8 @@ async function showAdmin(){
   const r = await fetch('/api/content');
   content = await r.json();
   fillForm();
+  injectTextTools();
+  if(content.textStyles) applyTextStyles(content.textStyles);
 }
 
 function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
@@ -832,6 +893,7 @@ async function doSave(){
     cardPad: document.getElementById('f_cardPad').value
   };
   content.sectionOrder = sectionOrder;
+  content.textStyles = collectTextStyles();
 
   content.images = {
     heroPhoto: document.getElementById('f_heroPhoto').value,

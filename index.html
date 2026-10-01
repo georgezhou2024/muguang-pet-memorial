@@ -293,6 +293,18 @@ fetch('content.json').then(r=>r.json()).then(c=>{
     const footer = document.querySelector('footer');
     sections.forEach(sec=>parent.insertBefore(sec, footer));
   }
+
+  // 文字样式（色卡/粗细/字距）
+  if(c.textStyles){
+    Object.keys(c.textStyles).forEach(key=>{
+      const [id, type] = key.split('_');
+      const el = document.getElementById(id);
+      if(!el) return;
+      if(type==='color') el.style.color = c.textStyles[key];
+      if(type==='weight') el.style.fontWeight = c.textStyles[key];
+      if(type==='spacing') el.style.letterSpacing = c.textStyles[key]+'px';
+    });
+  }
 });
 </script>
 </body>
