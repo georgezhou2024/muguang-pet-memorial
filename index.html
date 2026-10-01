@@ -151,6 +151,13 @@
 </footer>
 
 <script>
+// 防复制/防下载
+document.addEventListener('contextmenu', e=>{ e.preventDefault(); alert('© 沐光宠语 · 图片受保护，禁止保存'); });
+document.addEventListener('copy', e=>{ e.preventDefault(); alert('© 沐光宠语 · 内容禁止复制'); });
+document.addEventListener('dragstart', e=>{ if(e.target.tagName==='IMG') e.preventDefault(); });
+document.addEventListener('selectstart', e=>{ e.preventDefault(); });
+document.addEventListener('mouseover', e=>{ if(e.target.tagName==='IMG') e.target.style.cursor='not-allowed'; });
+
 // 把 GitHub raw 链接转成 jsDelivr CDN（国内加速）
 function cdn(url){
   if(!url) return url;
