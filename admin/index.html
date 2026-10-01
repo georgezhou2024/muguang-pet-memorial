@@ -24,7 +24,6 @@
   .field input,.field textarea,.field select{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:14px;font-family:inherit}
   .field textarea{min-height:70px;resize:vertical}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
   .item{background:#faf6f0;padding:14px;border-radius:8px;margin-bottom:10px;border:1px solid #e8ddd0}
   .item h3{font-size:14px;margin-bottom:8px;color:#B8743A}
   .save-bar{position:sticky;bottom:0;background:#fff;padding:16px;border-radius:10px;box-shadow:0 -4px 16px rgba(0,0,0,.06);display:flex;gap:12px;align-items:center;z-index:10}
@@ -35,14 +34,12 @@
   .status.ok{color:#27ae60}
   .status.err{color:#c0392b}
   .hidden{display:none}
-  /* color picker */
   .color-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
   .color-row input[type=color]{width:50px;height:36px;border:1px solid #ddd;border-radius:6px;cursor:pointer;padding:2px}
   .color-row input[type=text]{flex:1;padding:8px 10px;border:1px solid #ddd;border-radius:6px;font-family:monospace;font-size:13px}
   .color-row label{font-size:13px;width:110px;color:#6B5D50}
-  /* image upload */
-  .img-upload{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-  .img-upload .preview{width:80px;height:80px;border:1px dashed #ccc;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fafafa}
+  .img-upload{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:10px;background:#faf6f0;border-radius:8px}
+  .img-upload .preview{width:80px;height:80px;border:1px dashed #ccc;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;flex-shrink:0}
   .img-upload .preview img{max-width:100%;max-height:100%;object-fit:cover}
   .img-upload .preview span{font-size:24px;color:#ccc}
   .img-upload .controls{flex:1}
@@ -56,7 +53,6 @@
 </head>
 <body>
 
-<!-- 登录页 -->
 <div class="login-wrap" id="loginView">
   <h1>🕯️ 沐光宠语 · 后台管理</h1>
   <input type="password" id="pwInput" placeholder="输入管理密码">
@@ -64,7 +60,6 @@
   <div class="err" id="loginErr">密码错误，请重试</div>
 </div>
 
-<!-- 编辑页 -->
 <div class="admin hidden" id="adminView">
   <header>
     <h1>编辑网站内容</h1>
@@ -75,14 +70,15 @@
   </header>
 
   <div class="tabs">
-    <button class="active" onclick="showTab('basic',this)">品牌与首页</button>
-    <button onclick="showTab('services',this)">服务与流程</button>
-    <button onclick="showTab('plans',this)">套餐与理念</button>
-    <button onclick="showTab('theme',this)">配色与图片</button>
-    <button onclick="showTab('footer',this)">页脚与联系</button>
+    <button class="active" onclick="showTab('basic',this)">品牌/Hero</button>
+    <button onclick="showTab('gallery',this)">照片墙/图文块</button>
+    <button onclick="showTab('services',this)">服务/流程</button>
+    <button onclick="showTab('plans',this)">套餐/理念</button>
+    <button onclick="showTab('theme',this)">配色/图片上传</button>
+    <button onclick="showTab('footer',this)">页脚/联系</button>
   </div>
 
-  <!-- Tab: 品牌与首页 -->
+  <!-- 品牌/Hero -->
   <div id="tab-basic">
     <div class="section">
       <h2>品牌信息</h2>
@@ -91,22 +87,55 @@
         <div class="field"><label>英文标注</label><input id="f_brandNameEn"></div>
       </div>
       <div class="row">
-        <div class="field"><label>Logo Emoji（没上传图片时显示）</label><input id="f_logoEmoji"></div>
+        <div class="field"><label>Logo Emoji</label><input id="f_logoEmoji"></div>
         <div class="field"><label>热线电话</label><input id="f_hotline"></div>
       </div>
-      <div class="field"><label>门店地址（页脚显示）</label><input id="f_address" placeholder="选填，如：北京市朝阳区三里屯路 xx 号"></div>
+      <div class="field"><label>门店地址</label><input id="f_address" placeholder="选填"></div>
     </div>
-
     <div class="section">
-      <h2>首页 Hero 区</h2>
+      <h2>首页 Hero（左文右图）</h2>
       <div class="field"><label>大图标 Emoji</label><input id="f_heroMark"></div>
       <div class="field"><label>主标题第一行</label><input id="f_hero1"></div>
       <div class="field"><label>主标题第二行（品牌色）</label><input id="f_hero2"></div>
       <div class="field"><label>副标题</label><textarea id="f_heroSub"></textarea></div>
+      <div class="row">
+        <div class="field"><label>主按钮文字</label><input id="f_heroBtn1"></div>
+        <div class="field"><label>次按钮文字</label><input id="f_heroBtn2"></div>
+      </div>
     </div>
   </div>
 
-  <!-- Tab: 服务与流程 -->
+  <!-- 照片墙/图文块 -->
+  <div id="tab-gallery" class="hidden">
+    <div class="section">
+      <h2>照片墙标题区</h2>
+      <div class="field"><label>小标题（英文）</label><input id="f_galleryEyebrow"></div>
+      <div class="field"><label>大标题</label><input id="f_galleryTitle"></div>
+      <div class="field"><label>描述</label><textarea id="f_gallerySub"></textarea></div>
+    </div>
+    <div class="section">
+      <h2>图文块 1</h2>
+      <div class="field"><label>标题</label><input id="f_block1Title"></div>
+      <div class="field"><label>副标题</label><input id="f_block1Sub"></div>
+      <div class="field"><label>正文</label><textarea id="f_block1Body"></textarea></div>
+      <div class="row">
+        <div class="field"><label>按钮文字</label><input id="f_block1Btn"></div>
+        <div class="field"><label>按钮链接</label><input id="f_block1Link" value="/booking"></div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>图文块 2</h2>
+      <div class="field"><label>标题</label><input id="f_block2Title"></div>
+      <div class="field"><label>副标题</label><input id="f_block2Sub"></div>
+      <div class="field"><label>正文</label><textarea id="f_block2Body"></textarea></div>
+      <div class="row">
+        <div class="field"><label>按钮文字</label><input id="f_block2Btn"></div>
+        <div class="field"><label>按钮链接</label><input id="f_block2Link" value="/booking"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 服务/流程 -->
   <div id="tab-services" class="hidden">
     <div class="section">
       <h2>服务项目（6 项）</h2>
@@ -118,7 +147,7 @@
     </div>
   </div>
 
-  <!-- Tab: 套餐与理念 -->
+  <!-- 套餐/理念 -->
   <div id="tab-plans" class="hidden">
     <div class="section">
       <h2>服务套餐（3 档）</h2>
@@ -132,82 +161,102 @@
     </div>
   </div>
 
-  <!-- Tab: 配色与图片 -->
+  <!-- 配色/图片上传 -->
   <div id="tab-theme" class="hidden">
     <div class="section">
-      <h2>配色方案（点色块选色，或直接输入十六进制）</h2>
-      <div class="color-row">
-        <label>品牌主色</label>
-        <input type="color" id="c_brand" oninput="syncColor('c_brand','t_brand')">
-        <input type="text" id="t_brand" oninput="syncColor('t_brand','c_brand')">
-      </div>
-      <div class="color-row">
-        <label>品牌深色</label>
-        <input type="color" id="c_brandDark" oninput="syncColor('c_brandDark','t_brandDark')">
-        <input type="text" id="t_brandDark" oninput="syncColor('t_brandDark','c_brandDark')">
-      </div>
-      <div class="color-row">
-        <label>品牌浅色</label>
-        <input type="color" id="c_brandSoft" oninput="syncColor('c_brandSoft','t_brandSoft')">
-        <input type="text" id="t_brandSoft" oninput="syncColor('t_brandSoft','c_brandSoft')">
-      </div>
-      <div class="color-row">
-        <label>标题文字色</label>
-        <input type="color" id="c_ink" oninput="syncColor('c_ink','t_ink')">
-        <input type="text" id="t_ink" oninput="syncColor('t_ink','c_ink')">
-      </div>
-      <div class="color-row">
-        <label>页面背景</label>
-        <input type="color" id="c_bg" oninput="syncColor('c_bg','t_bg')">
-        <input type="text" id="t_bg" oninput="syncColor('t_bg','c_bg')">
-      </div>
-      <div class="color-row">
-        <label>浅区块背景</label>
-        <input type="color" id="c_bgSoft" oninput="syncColor('c_bgSoft','t_bgSoft')">
-        <input type="text" id="t_bgSoft" oninput="syncColor('t_bgSoft','c_bgSoft')">
-      </div>
-      <div class="color-row">
-        <label>边框线色</label>
-        <input type="color" id="c_line" oninput="syncColor('c_line','t_line')">
-        <input type="text" id="t_line" oninput="syncColor('t_line','c_line')">
-      </div>
+      <h2>配色方案</h2>
+      <div class="color-row"><label>品牌主色</label><input type="color" id="c_brand" oninput="syncColor('c_brand','t_brand')"><input type="text" id="t_brand" oninput="syncColor('t_brand','c_brand')"></div>
+      <div class="color-row"><label>品牌深色</label><input type="color" id="c_brandDark" oninput="syncColor('c_brandDark','t_brandDark')"><input type="text" id="t_brandDark" oninput="syncColor('t_brandDark','c_brandDark')"></div>
+      <div class="color-row"><label>品牌浅色</label><input type="color" id="c_brandSoft" oninput="syncColor('c_brandSoft','t_brandSoft')"><input type="text" id="t_brandSoft" oninput="syncColor('t_brandSoft','c_brandSoft')"></div>
+      <div class="color-row"><label>标题文字色</label><input type="color" id="c_ink" oninput="syncColor('c_ink','t_ink')"><input type="text" id="t_ink" oninput="syncColor('t_ink','c_ink')"></div>
+      <div class="color-row"><label>页面背景</label><input type="color" id="c_bg" oninput="syncColor('c_bg','t_bg')"><input type="text" id="t_bg" oninput="syncColor('t_bg','c_bg')"></div>
+      <div class="color-row"><label>浅区块背景</label><input type="color" id="c_bgSoft" oninput="syncColor('c_bgSoft','t_bgSoft')"><input type="text" id="t_bgSoft" oninput="syncColor('t_bgSoft','c_bgSoft')"></div>
+      <div class="color-row"><label>边框线色</label><input type="color" id="c_line" oninput="syncColor('c_line','t_line')"><input type="text" id="t_line" oninput="syncColor('t_line','c_line')"></div>
     </div>
 
     <div class="section">
-      <h2>图片上传</h2>
+      <h2>图片上传（点按钮选本地图片）</h2>
       <div class="img-upload">
         <div class="preview" id="pv_logo"><span>🖼</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_logoImage','pv_logo')">上传 Logo 图片</button>
-          <div class="hint">方形最佳，上传后自动替换文字 Logo</div>
+          <div class="hint">方形最佳</div>
         </div>
         <input type="hidden" id="f_logoImage">
       </div>
       <div class="img-upload">
-        <div class="preview" id="pv_heroBg"><span>🖼</span></div>
+        <div class="preview" id="pv_heroPhoto"><span>🖼</span></div>
         <div class="controls">
-          <button onclick="uploadImg('f_heroBg','pv_heroBg')">上传 Hero 背景图</button>
-          <div class="hint">首页大横幅背景，建议 16:9 横图</div>
+          <button onclick="uploadImg('f_heroPhoto','pv_heroPhoto')">上传 Hero 右侧大图</button>
+          <div class="hint">首页横幅右侧，建议竖图或方图</div>
         </div>
-        <input type="hidden" id="f_heroBg">
+        <input type="hidden" id="f_heroPhoto">
+      </div>
+      <div class="img-upload">
+        <div class="preview" id="pv_gallery0"><span>1</span></div>
+        <div class="controls">
+          <button onclick="uploadImg('f_gallery0','pv_gallery0')">照片墙 图1</button>
+          <div class="hint">正方形最佳</div>
+        </div>
+        <input type="hidden" id="f_gallery0">
+      </div>
+      <div class="img-upload">
+        <div class="preview" id="pv_gallery1"><span>2</span></div>
+        <div class="controls">
+          <button onclick="uploadImg('f_gallery1','pv_gallery1')">照片墙 图2</button>
+          <div class="hint">正方形最佳</div>
+        </div>
+        <input type="hidden" id="f_gallery1">
+      </div>
+      <div class="img-upload">
+        <div class="preview" id="pv_gallery2"><span>3</span></div>
+        <div class="controls">
+          <button onclick="uploadImg('f_gallery2','pv_gallery2')">照片墙 图3</button>
+          <div class="hint">正方形最佳</div>
+        </div>
+        <input type="hidden" id="f_gallery2">
+      </div>
+      <div class="img-upload">
+        <div class="preview" id="pv_gallery3"><span>4</span></div>
+        <div class="controls">
+          <button onclick="uploadImg('f_gallery3','pv_gallery3')">照片墙 图4</button>
+          <div class="hint">正方形最佳</div>
+        </div>
+        <input type="hidden" id="f_gallery3">
+      </div>
+      <div class="img-upload">
+        <div class="preview" id="pv_block1Img"><span>🖼</span></div>
+        <div class="controls">
+          <button onclick="uploadImg('f_block1Img','pv_block1Img')">图文块1 配图</button>
+          <div class="hint">横图，建议 3:2</div>
+        </div>
+        <input type="hidden" id="f_block1Img">
+      </div>
+      <div class="img-upload">
+        <div class="preview" id="pv_block2Img"><span>🖼</span></div>
+        <div class="controls">
+          <button onclick="uploadImg('f_block2Img','pv_block2Img')">图文块2 配图</button>
+          <div class="hint">横图，建议 3:2</div>
+        </div>
+        <input type="hidden" id="f_block2Img">
       </div>
       <div class="img-upload">
         <div class="preview" id="pv_aboutImg"><span>🖼</span></div>
         <div class="controls">
-          <button onclick="uploadImg('f_aboutImg','pv_aboutImg')">上传理念区配图</button>
-          <div class="hint">右侧方形图，建议方图</div>
+          <button onclick="uploadImg('f_aboutImg','pv_aboutImg')">理念区配图</button>
+          <div class="hint">右侧方形图</div>
         </div>
         <input type="hidden" id="f_aboutImg">
       </div>
     </div>
   </div>
 
-  <!-- Tab: 页脚 -->
+  <!-- 页脚 -->
   <div id="tab-footer" class="hidden">
     <div class="section">
       <h2>页脚信息</h2>
-      <div class="field"><label>品牌简介（页脚左栏）</label><textarea id="f_footerDesc"></textarea></div>
-      <div class="field"><label>版权行（最底部）</label><input id="f_footerCopyright"></div>
+      <div class="field"><label>品牌简介</label><textarea id="f_footerDesc"></textarea></div>
+      <div class="field"><label>版权行</label><input id="f_footerCopyright"></div>
     </div>
   </div>
 
@@ -227,22 +276,13 @@ async function doLogin(){
   const pw = document.getElementById('pwInput').value;
   try{
     const r = await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pw})});
-    if(r.ok){
-      sessionStorage.setItem('adminAuth','1');
-      showAdmin();
-    } else {
-      document.getElementById('loginErr').style.display='block';
-    }
+    if(r.ok){ sessionStorage.setItem('adminAuth','1'); showAdmin(); }
+    else { document.getElementById('loginErr').style.display='block'; }
   }catch(e){ alert('网络错误'); }
 }
-
-function logout(){
-  sessionStorage.removeItem('adminAuth');
-  location.reload();
-}
-
+function logout(){ sessionStorage.removeItem('adminAuth'); location.reload(); }
 function showTab(name, btn){
-  ['basic','services','plans','theme','footer'].forEach(t=>{
+  ['basic','gallery','services','plans','theme','footer'].forEach(t=>{
     document.getElementById('tab-'+t).classList.toggle('hidden', t!==name);
   });
   document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
@@ -257,6 +297,8 @@ async function showAdmin(){
   fillForm();
 }
 
+function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
 function fillForm(){
   document.getElementById('f_brandName').value = content.brand.name || '';
   document.getElementById('f_brandNameEn').value = content.brand.nameEn || '';
@@ -269,27 +311,50 @@ function fillForm(){
   document.getElementById('f_hero1').value = content.hero.title1 || '';
   document.getElementById('f_hero2').value = content.hero.title2 || '';
   document.getElementById('f_heroSub').value = content.hero.subtitle || '';
+  document.getElementById('f_heroBtn1').value = content.hero.btn1 || '';
+  document.getElementById('f_heroBtn2').value = content.hero.btn2 || '';
+
+  // gallery section
+  document.getElementById('f_galleryEyebrow').value = content.gallerySection.eyebrow || '';
+  document.getElementById('f_galleryTitle').value = content.gallerySection.title || '';
+  document.getElementById('f_gallerySub').value = content.gallerySection.subtitle || '';
+
+  // blocks
+  const b1 = content.blocks[0], b2 = content.blocks[1];
+  document.getElementById('f_block1Title').value = b1.title;
+  document.getElementById('f_block1Sub').value = b1.subtitle;
+  document.getElementById('f_block1Body').value = b1.body;
+  document.getElementById('f_block1Btn').value = b1.btnText;
+  document.getElementById('f_block1Link').value = b1.btnLink;
+  document.getElementById('f_block2Title').value = b2.title;
+  document.getElementById('f_block2Sub').value = b2.subtitle;
+  document.getElementById('f_block2Body').value = b2.body;
+  document.getElementById('f_block2Btn').value = b2.btnText;
+  document.getElementById('f_block2Link').value = b2.btnLink;
 
   document.getElementById('f_philoTitle').value = content.philosophy.title || '';
   document.getElementById('f_philoQuote').value = content.philosophy.quote || '';
   document.getElementById('f_philoBody').value = content.philosophy.body || '';
 
-  // theme colors
+  // theme
   const t = content.theme || {};
-  setColor('brand', t.brand);
-  setColor('brandDark', t.brandDark);
-  setColor('brandSoft', t.brandSoft);
-  setColor('ink', t.ink);
-  setColor('bg', t.bg);
-  setColor('bgSoft', t.bgSoft);
-  setColor('line', t.line);
+  setColor('brand', t.brand); setColor('brandDark', t.brandDark); setColor('brandSoft', t.brandSoft);
+  setColor('ink', t.ink); setColor('bg', t.bg); setColor('bgSoft', t.bgSoft); setColor('line', t.line);
 
   // images
-  document.getElementById('f_heroBg').value = (content.images||{}).heroBg || '';
-  document.getElementById('f_aboutImg').value = (content.images||{}).aboutImg || '';
+  const im = content.images || {};
+  document.getElementById('f_heroPhoto').value = im.heroPhoto || '';
+  document.getElementById('f_block1Img').value = im.block1Img || '';
+  document.getElementById('f_block2Img').value = im.block2Img || '';
+  document.getElementById('f_aboutImg').value = im.aboutImg || '';
+  (im.gallery||[]).forEach((url,i)=>{ document.getElementById('f_gallery'+i).value = url; });
+
   updatePreview('pv_logo', content.brand.logoImage);
-  updatePreview('pv_heroBg', (content.images||{}).heroBg);
-  updatePreview('pv_aboutImg', (content.images||{}).aboutImg);
+  updatePreview('pv_heroPhoto', im.heroPhoto);
+  for(let i=0;i<4;i++) updatePreview('pv_gallery'+i, (im.gallery||[])[i]);
+  updatePreview('pv_block1Img', im.block1Img);
+  updatePreview('pv_block2Img', im.block2Img);
+  updatePreview('pv_aboutImg', im.aboutImg);
 
   // footer
   document.getElementById('f_footerDesc').value = (content.footer||{}).desc || '';
@@ -307,8 +372,7 @@ function fillForm(){
     </div>`).join('');
 
   // process
-  const procs = content.process || [];
-  document.getElementById('processEditor').innerHTML = procs.map((p,i)=>`
+  document.getElementById('processEditor').innerHTML = (content.process||[]).map((p,i)=>`
     <div class="item">
       <h3>步骤 ${i+1}</h3>
       <div class="row">
@@ -330,68 +394,48 @@ function fillForm(){
     </div>`).join('');
 }
 
-function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
-
-function setColor(key, val){
-  if(!val) return;
-  document.getElementById('c_'+key).value = val;
-  document.getElementById('t_'+key).value = val;
-}
-function syncColor(from, to){
-  document.getElementById(to).value = document.getElementById(from).value;
-}
-
+function setColor(key, val){ if(!val) return; document.getElementById('c_'+key).value=val; document.getElementById('t_'+key).value=val; }
+function syncColor(from,to){ document.getElementById(to).value=document.getElementById(from).value; }
 function updatePreview(pvId, url){
   const pv = document.getElementById(pvId);
-  if(url){ pv.innerHTML = `<img src="${url}">`; }
-  else { pv.innerHTML = '<span>🖼</span>'; }
+  pv.innerHTML = url ? `<img src="${url}">` : '<span>🖼</span>';
 }
-
 function uploadImg(hiddenId, pvId){
   document.getElementById('uploadTarget').value = hiddenId + '|' + pvId;
   document.getElementById('fileInput').click();
 }
-
 function onFileChosen(input){
-  const file = input.files[0];
-  if(!file) return;
+  const file = input.files[0]; if(!file) return;
   const [hiddenId, pvId] = document.getElementById('uploadTarget').value.split('|');
-
-  // read as dataUrl
   const reader = new FileReader();
   reader.onload = async function(e){
     const dataUrl = e.target.result;
     const btn = document.querySelector(`#${pvId}`).parentElement.querySelector('button');
-    if(btn){ btn.disabled = true; btn.textContent = '上传中...'; }
-
+    if(btn){ btn.disabled=true; btn.textContent='上传中...'; }
     try{
-      const r = await fetch('/api/upload',{
-        method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ filename: file.name, dataUrl })
-      });
+      const r = await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:file.name,dataUrl})});
       const j = await r.json();
       if(j.ok){
         document.getElementById(hiddenId).value = j.url;
         updatePreview(pvId, j.url);
-        if(btn){ btn.disabled = false; btn.textContent = '重新上传'; }
+        if(btn){ btn.disabled=false; btn.textContent='重新上传'; }
       } else {
-        alert('上传失败: ' + (j.error||''));
-        if(btn){ btn.disabled = false; btn.textContent = '上传失败，重试'; }
+        alert('上传失败: '+(j.error||''));
+        if(btn){ btn.disabled=false; btn.textContent='重试'; }
       }
     }catch(err){
       alert('网络错误: '+err);
-      if(btn){ btn.disabled = false; btn.textContent = '重试'; }
+      if(btn){ btn.disabled=false; btn.textContent='重试'; }
     }
   };
   reader.readAsDataURL(file);
-  input.value = '';
+  input.value='';
 }
 
 async function doSave(){
   const status = document.getElementById('status');
-  status.textContent = '发布中...'; status.className='status';
+  status.textContent='发布中...'; status.className='status';
 
-  // basic
   content.brand.name = document.getElementById('f_brandName').value;
   content.brand.nameEn = document.getElementById('f_brandNameEn').value;
   content.brand.logoEmoji = document.getElementById('f_logoEmoji').value;
@@ -403,12 +447,32 @@ async function doSave(){
   content.hero.title1 = document.getElementById('f_hero1').value;
   content.hero.title2 = document.getElementById('f_hero2').value;
   content.hero.subtitle = document.getElementById('f_heroSub').value;
+  content.hero.btn1 = document.getElementById('f_heroBtn1').value;
+  content.hero.btn2 = document.getElementById('f_heroBtn2').value;
+
+  content.gallerySection.eyebrow = document.getElementById('f_galleryEyebrow').value;
+  content.gallerySection.title = document.getElementById('f_galleryTitle').value;
+  content.gallerySection.subtitle = document.getElementById('f_gallerySub').value;
+
+  content.blocks[0] = {
+    title: document.getElementById('f_block1Title').value,
+    subtitle: document.getElementById('f_block1Sub').value,
+    body: document.getElementById('f_block1Body').value,
+    btnText: document.getElementById('f_block1Btn').value,
+    btnLink: document.getElementById('f_block1Link').value
+  };
+  content.blocks[1] = {
+    title: document.getElementById('f_block2Title').value,
+    subtitle: document.getElementById('f_block2Sub').value,
+    body: document.getElementById('f_block2Body').value,
+    btnText: document.getElementById('f_block2Btn').value,
+    btnLink: document.getElementById('f_block2Link').value
+  };
 
   content.philosophy.title = document.getElementById('f_philoTitle').value;
   content.philosophy.quote = document.getElementById('f_philoQuote').value;
   content.philosophy.body = document.getElementById('f_philoBody').value;
 
-  // theme
   content.theme = {
     brand: document.getElementById('t_brand').value,
     brandDark: document.getElementById('t_brandDark').value,
@@ -419,57 +483,43 @@ async function doSave(){
     line: document.getElementById('t_line').value
   };
 
-  // images
   content.images = {
-    heroBg: document.getElementById('f_heroBg').value,
-    aboutImg: document.getElementById('f_aboutImg').value
+    heroPhoto: document.getElementById('f_heroPhoto').value,
+    block1Img: document.getElementById('f_block1Img').value,
+    block2Img: document.getElementById('f_block2Img').value,
+    aboutImg: document.getElementById('f_aboutImg').value,
+    gallery: [0,1,2,3].map(i=>document.getElementById('f_gallery'+i).value)
   };
 
-  // footer
   content.footer = {
     desc: document.getElementById('f_footerDesc').value,
     copyright: document.getElementById('f_footerCopyright').value
   };
 
-  // services
   content.services = content.services.map((s,i)=>({
     icon: document.getElementById(`svc_${i}_icon`).value,
     title: document.getElementById(`svc_${i}_title`).value,
     desc: document.getElementById(`svc_${i}_desc`).value
   }));
-
-  // process
   content.process = (content.process||[]).map((p,i)=>({
     icon: document.getElementById(`proc_${i}_icon`).value,
     title: document.getElementById(`proc_${i}_title`).value,
     desc: document.getElementById(`proc_${i}_desc`).value
   }));
-
-  // plans
   content.plans = content.plans.map((p,i)=>({
     name: document.getElementById(`plan_${i}_name`).value,
     price: document.getElementById(`plan_${i}_price`).value,
-    unit: p.unit,
-    featured: p.featured,
+    unit: p.unit, featured: p.featured,
     items: document.getElementById(`plan_${i}_items`).value.split('\n').filter(x=>x.trim())
   }));
 
   try{
     const r = await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(content)});
-    if(r.ok){
-      status.textContent = '✅ 已发布！Vercel 正在自动部署，约 1 分钟后生效';
-      status.className='status ok';
-    } else {
-      const e = await r.text();
-      status.textContent = '❌ 发布失败: '+e;
-      status.className='status err';
-    }
-  }catch(e){
-    status.textContent='❌ 网络错误'; status.className='status err';
-  }
+    if(r.ok){ status.textContent='✅ 已发布！约 1 分钟后生效'; status.className='status ok'; }
+    else { const e=await r.text(); status.textContent='❌ 发布失败: '+e; status.className='status err'; }
+  }catch(e){ status.textContent='❌ 网络错误'; status.className='status err'; }
 }
 
-// auto login
 if(sessionStorage.getItem('adminAuth')==='1'){ showAdmin(); }
 </script>
 </body>

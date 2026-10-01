@@ -26,7 +26,7 @@
     <nav>
       <ul>
         <li><a href="#services">服务项目</a></li>
-        <li><a href="#process">告别流程</a></li>
+        <li><a href="#gallery">环境展示</a></li>
         <li><a href="#plans">服务套餐</a></li>
         <li><a href="#about">我们的理念</a></li>
         <li><a href="/booking" class="nav-cta">预约告别</a></li>
@@ -36,21 +36,47 @@
   </div>
 </header>
 
-<section class="hero" id="heroSection">
-  <div class="hero-inner">
-    <div class="mark" id="heroMark">🌈</div>
-    <h1>
-      <span id="heroTitle1">为你的宠物送最后一程</span>
-      <span class="accent" id="heroTitle2">让我们为毛孩子祈祷</span>
-    </h1>
-    <p id="heroSubtitle">十二年的陪伴，值得一场温柔的告别。</p>
-    <div class="btn-row">
-      <a href="/booking" class="btn btn-solid">立即预约告别</a>
-      <a href="#process" class="btn btn-ghost">了解告别流程</a>
+<!-- Hero: 左文右图 -->
+<section class="hero-split" id="heroSection">
+  <div class="hero-split-inner">
+    <div class="hero-text">
+      <div class="mark" id="heroMark">🌈</div>
+      <h1>
+        <span id="heroTitle1">为你的宠物送最后一程</span>
+        <span class="accent" id="heroTitle2">让我们为毛孩子祈祷</span>
+      </h1>
+      <p id="heroSubtitle">十二年的陪伴，值得一场温柔的告别。</p>
+      <div class="btn-row">
+        <a href="/booking" class="btn btn-solid" id="heroBtn1">立即预约告别</a>
+        <a href="#process" class="btn btn-outline" id="heroBtn2">了解告别流程</a>
+      </div>
+    </div>
+    <div class="hero-photo" id="heroPhoto">
+      <div class="hero-photo-placeholder">🐾</div>
     </div>
   </div>
 </section>
 
+<!-- 照片墙 -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" id="galleryEyebrow">OUR SPACE</span>
+      <h2 id="galleryTitle">这里，是它最后的温柔港湾</h2>
+      <p id="gallerySubtitle">独立告别室、暖光白菊、柔软小毯——每一处细节，都为它而设。</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- 双栏图文块 -->
+<section class="section section-soft" id="blocks">
+  <div class="container">
+    <div class="blocks-grid" id="blocksGrid"></div>
+  </div>
+</section>
+
+<!-- 服务项目 -->
 <section class="section" id="services">
   <div class="container">
     <div class="section-head">
@@ -62,6 +88,7 @@
   </div>
 </section>
 
+<!-- 流程 -->
 <section class="section section-soft" id="process">
   <div class="container">
     <div class="section-head">
@@ -73,6 +100,7 @@
   </div>
 </section>
 
+<!-- 套餐 -->
 <section class="section" id="plans">
   <div class="container">
     <div class="section-head">
@@ -84,6 +112,7 @@
   </div>
 </section>
 
+<!-- 理念 -->
 <section class="section section-soft" id="about">
   <div class="container philosophy">
     <div class="visual" id="aboutVisual">🐾</div>
@@ -92,18 +121,19 @@
       <h2 id="philoTitle">它不是一只动物，它是家人。</h2>
       <blockquote id="philoQuote">我们相信，陪伴是相互的。</blockquote>
       <p id="philoBody" style="margin-bottom:16px">沐光宠语由一群真正爱过宠物的人创办。</p>
-      <a href="/booking" class="btn">联系我们 →</a>
+      <a href="/booking" class="btn btn-outline">联系我们 →</a>
     </div>
   </div>
 </section>
 
+<!-- 联系带 -->
 <section class="contact-band">
   <div class="container">
     <h2>此刻，我们在你身边</h2>
     <p>无论白天还是深夜，拨通电话，就有人轻声回应你。</p>
     <div class="phone" id="hotlineBig">400-820-XXXX</div>
     <div style="margin-top:28px">
-      <a href="/booking" class="btn btn-solid contact-btn">在线提交预约</a>
+      <a href="/booking" class="btn btn-light">在线提交预约</a>
     </div>
   </div>
 </section>
@@ -122,7 +152,7 @@
 
 <script>
 fetch('content.json').then(r=>r.json()).then(c=>{
-  // ===== 动态配色 =====
+  // 动态配色
   const t = c.theme || {};
   const root = document.documentElement.style;
   if(t.brand) root.setProperty('--brand', t.brand);
@@ -133,11 +163,10 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   if(t.bgSoft) root.setProperty('--bg-soft', t.bgSoft);
   if(t.line) root.setProperty('--line', t.line);
 
-  // ===== 品牌 =====
+  // 品牌
   document.getElementById('brandName').textContent = c.brand.name;
   document.getElementById('brandNameEn').textContent = c.brand.nameEn;
   document.getElementById('footBrand').textContent = c.brand.name;
-  // Logo: 图片优先，否则 emoji
   const lm = document.getElementById('logoMark');
   if(c.brand.logoImage){
     lm.innerHTML = `<img src="${c.brand.logoImage}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
@@ -145,51 +174,77 @@ fetch('content.json').then(r=>r.json()).then(c=>{
     lm.textContent = c.brand.logoEmoji;
   }
 
-  // ===== 热线/地址 =====
+  // 热线
   document.getElementById('hotlineTop').textContent = '24小时善终热线 · ' + c.hotline;
   document.getElementById('hotlineBig').textContent = c.hotline;
 
-  // ===== Hero =====
+  // Hero
   document.getElementById('heroMark').textContent = c.hero.mark;
   document.getElementById('heroTitle1').textContent = c.hero.title1;
   document.getElementById('heroTitle2').textContent = c.hero.title2;
   document.getElementById('heroSubtitle').textContent = c.hero.subtitle;
-  if(c.images && c.images.heroBg){
-    document.getElementById('heroSection').style.backgroundImage = `linear-gradient(rgba(253,251,248,.85),rgba(245,239,230,.9)),url('${c.images.heroBg}')`;
-    document.getElementById('heroSection').style.backgroundSize = 'cover';
-    document.getElementById('heroSection').style.backgroundPosition = 'center';
+  document.getElementById('heroBtn1').textContent = c.hero.btn1;
+  document.getElementById('heroBtn2').textContent = c.hero.btn2;
+
+  // Hero 右侧大图
+  const hp = document.getElementById('heroPhoto');
+  if(c.images && c.images.heroPhoto){
+    hp.innerHTML = `<img src="${c.images.heroPhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:12px">`;
   }
 
-  // ===== 服务 =====
+  // 照片墙
+  const g = c.images && c.images.gallery ? c.images.gallery : [];
+  document.getElementById('galleryGrid').innerHTML = g.map((url,i)=>{
+    if(url) return `<div class="gallery-item"><img src="${url}" alt="环境照片${i+1}"></div>`;
+    return `<div class="gallery-item gallery-empty">📷<small>照片${i+1}</small></div>`;
+  }).join('');
+  document.getElementById('galleryEyebrow').textContent = c.gallerySection.eyebrow;
+  document.getElementById('galleryTitle').textContent = c.gallerySection.title;
+  document.getElementById('gallerySubtitle').textContent = c.gallerySection.subtitle;
+
+  // 双栏图文块
+  document.getElementById('blocksGrid').innerHTML = c.blocks.map((b,i)=>{
+    const img = (c.images && (i===0?c.images.block1Img:c.images.block2Img)) || '';
+    return `
+    <div class="block-card">
+      <div class="block-img">${img?`<img src="${img}">`:'<span>🖼</span>'}</div>
+      <div class="block-body">
+        <h3>${b.title}</h3>
+        <p class="block-sub">${b.subtitle}</p>
+        <p>${b.body}</p>
+        <a href="${b.btnLink}" class="btn btn-outline">${b.btnText} →</a>
+      </div>
+    </div>`;
+  }).join('');
+
+  // 服务
   document.getElementById('servicesGrid').innerHTML = c.services.map(s=>`
     <div class="card"><div class="icon">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
 
-  // ===== 流程 =====
+  // 流程
   document.getElementById('processGrid').innerHTML = (c.process||[]).map(p=>`
     <div class="step"><div class="icon">${p.icon}</div><h3>${p.title}</h3><p>${p.desc}</p></div>`).join('');
 
-  // ===== 套餐 =====
+  // 套餐
   document.getElementById('plansGrid').innerHTML = c.plans.map(p=>`
     <div class="plan${p.featured?' featured':''}">
       <h3>${p.name}</h3>
       <div class="price">${p.price} <small>${p.unit}</small></div>
       <ul>${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
-      <a href="/booking" class="btn" style="text-align:center">预约此套餐</a>
+      <a href="/booking" class="btn btn-outline" style="text-align:center">预约此套餐</a>
     </div>`).join('');
 
-  // ===== 理念 =====
+  // 理念
   document.getElementById('philoTitle').innerHTML = c.philosophy.title;
   document.getElementById('philoQuote').textContent = c.philosophy.quote;
   document.getElementById('philoBody').textContent = c.philosophy.body;
   const av = document.getElementById('aboutVisual');
   if(c.images && c.images.aboutImg){
-    av.innerHTML = `<img src="${c.images.aboutImg}" style="width:100%;height:100%;object-fit:cover;border-radius:100px">`;
+    av.innerHTML = `<img src="${c.images.aboutImg}" style="width:100%;height:100%;object-fit:cover;border-radius:10px">`;
     av.style.background = 'none';
-  } else {
-    av.textContent = '🐾';
   }
 
-  // ===== Footer =====
+  // Footer
   if(c.footer){
     document.getElementById('footDesc').textContent = c.footer.desc;
     document.getElementById('footCopyright').textContent = c.footer.copyright;
