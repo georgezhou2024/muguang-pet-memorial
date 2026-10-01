@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "沐光宠语",
-    "nameEn": "Jeff老师 我做的怎么样 哈哈哈哈哈哈哈哈",
+    "nameEn": "",
     "logoEmoji": "🕯️",
     "logoImage": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841145547_ef50119d-eb7c-4b16-aa23-d29fd4c9d5f1.png"
   },
@@ -15,7 +15,7 @@
     "bg": "#b8743a",
     "bgSoft": "#b8743a",
     "line": "#d0cac3",
-    "cardBg": "#e3b8a5",
+    "cardBg": "#a8b8d1",
     "fontHeading": "'Noto Sans SC',sans-serif",
     "fontBody": "'Noto Sans SC',sans-serif",
     "headWeight": "700",
@@ -42,7 +42,11 @@
     "title2": "让我们为毛孩子祈祷",
     "subtitle": "十二年的陪伴，值得一场温柔的告别。沐光宠语以尊严与敬意，陪你走完这最后一段路。",
     "btn1": "立即预约告别",
-    "btn2": "了解告别流程"
+    "btn2": "了解告别流程",
+    "hero1Font": "",
+    "hero1Color": "#3e342b",
+    "hero2Font": "",
+    "hero2Color": "#b8743a"
   },
   "gallerySection": {
     "eyebrow": "OUR SPACE",
