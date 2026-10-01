@@ -15,6 +15,7 @@
     "bg": "#b8743a",
     "bgSoft": "#b8743a",
     "line": "#d0cac3",
+    "cardBg": "#e3b8a5",
     "fontHeading": "'Noto Sans SC',sans-serif",
     "fontBody": "'Noto Sans SC',sans-serif",
     "headWeight": "700",
