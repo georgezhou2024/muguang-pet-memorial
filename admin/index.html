@@ -653,8 +653,7 @@ async function showAdmin(){
   const r = await fetch('/api/content');
   content = await r.json();
   fillForm();
-  injectTextTools();
-  if(content.textStyles) applyTextStyles(content.textStyles);
+  // 自动注入已禁用，避免冲突
 }
 
 function esc(s){ return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
