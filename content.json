@@ -45,7 +45,7 @@
     "subtitle": "十二年的陪伴，值得一场温柔的告别。沐光宠语以尊严与敬意，陪你走完这最后一段路。",
     "btn1": "立即预约告别",
     "btn2": "了解告别流程",
-    "hero1Font": "'ZCOOL QingKe HuangYou',sans-serif",
+    "hero1Font": "",
     "hero1Color": "#e9e0d8",
     "hero2Font": "",
     "hero2Color": "#b8743a",
@@ -193,7 +193,7 @@
   ],
   "textStyles": {
     "f_brandName_color": "#3e342b",
-    "f_brandNameEn_color": "#ccbeb3",
+    "f_brandNameEn_color": "#3e342b",
     "f_logoEmoji_color": "#3e342b",
     "f_hotline_color": "#3e342b",
     "f_address_color": "#3e342b",
@@ -204,8 +204,8 @@
     "f_heroBtn1_color": "#3e342b",
     "f_heroBtn2_color": "#3e342b",
     "f_galleryEyebrow_color": "#3e342b",
-    "f_galleryTitle_color": "#cdc6c1",
-    "f_gallerySub_color": "#e4e0dc",
+    "f_galleryTitle_color": "#3e342b",
+    "f_gallerySub_color": "#3e342b",
     "f_block1Title_color": "#3e342b",
     "f_block1Sub_color": "#3e342b",
     "f_block1Body_color": "#3e342b",
@@ -268,8 +268,6 @@
     "t_cardBg_color": "#3e342b",
     "f_heroVideoUrl_color": "#3e342b",
     "f_footerDesc_color": "#3e342b",
-    "f_footerCopyright_color": "#3e342b",
-    "f_block1Title_weight": "500",
-    "f_block1Title_spacing": "0.5"
+    "f_footerCopyright_color": "#3e342b"
   }
 }
