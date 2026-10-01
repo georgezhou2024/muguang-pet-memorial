@@ -177,7 +177,13 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   if(t.headWeight) document.querySelectorAll('h1,h2,h3').forEach(el=>el.style.fontWeight = t.headWeight);
   if(t.radius){
     const r = t.radius + 'px';
-    document.querySelectorAll('.gallery-item,.block-card,.plan-card,.service-card,.process-step,.hero-photo,.img-upload').forEach(el=>el.style.borderRadius = r);
+    document.querySelectorAll('.gallery-item,.block-card,.plan-card,.service-card,.process-step,.hero-photo,.img-upload,.card,.plan,.step').forEach(el=>el.style.borderRadius = r);
+  }
+  if(t.sectionPad){
+    document.querySelectorAll('.section').forEach(el=>el.style.padding = t.sectionPad + 'px 0');
+  }
+  if(t.cardPad){
+    document.querySelectorAll('.card,.plan,.step,.block-card').forEach(el=>el.style.padding = t.cardPad + 'px');
   }
 
   // 品牌

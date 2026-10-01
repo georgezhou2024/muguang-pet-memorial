@@ -294,6 +294,29 @@
     </div>
 
     <div class="section">
+      <h2>板块间距与大小</h2>
+      <div class="row">
+        <div class="field"><label>板块上下间距</label>
+          <select id="f_sectionPad">
+            <option value="40">紧凑 40px</option>
+            <option value="60">适中 60px</option>
+            <option value="80" selected>标准 80px</option>
+            <option value="100">宽松 100px</option>
+            <option value="140">超大 140px</option>
+          </select>
+        </div>
+        <div class="field"><label>卡片内边距</label>
+          <select id="f_cardPad">
+            <option value="20">紧凑 20px</option>
+            <option value="28" selected>标准 28px</option>
+            <option value="40">宽松 40px</option>
+            <option value="56">超大 56px</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
       <h2>视频（粘贴链接即可）</h2>
       <div class="field">
         <label>Hero 区视频链接</label>
@@ -554,6 +577,8 @@ function fillForm(){
   if(t.bodySize) document.getElementById('f_bodySize').value = t.bodySize;
   if(t.radius) document.getElementById('f_radius').value = t.radius;
   if(t.btnStyle) document.getElementById('f_btnStyle').value = t.btnStyle;
+  if(t.sectionPad) document.getElementById('f_sectionPad').value = t.sectionPad;
+  if(t.cardPad) document.getElementById('f_cardPad').value = t.cardPad;
 
   // images
   const im = content.images || {};
@@ -759,7 +784,9 @@ async function doSave(){
     headWeight: document.getElementById('f_headWeight').value,
     bodySize: document.getElementById('f_bodySize').value,
     radius: document.getElementById('f_radius').value,
-    btnStyle: document.getElementById('f_btnStyle').value
+    btnStyle: document.getElementById('f_btnStyle').value,
+    sectionPad: document.getElementById('f_sectionPad').value,
+    cardPad: document.getElementById('f_cardPad').value
   };
 
   content.images = {
