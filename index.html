@@ -233,6 +233,8 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   }).join('');
   document.getElementById('galleryEyebrow').textContent = c.gallerySection.eyebrow;
   document.getElementById('galleryTitle').textContent = c.gallerySection.title;
+  if(c.gallerySection.titleFont) document.getElementById('galleryTitle').style.fontFamily = c.gallerySection.titleFont;
+  if(c.gallerySection.titleColor) document.getElementById('galleryTitle').style.color = c.gallerySection.titleColor;
   document.getElementById('gallerySubtitle').textContent = c.gallerySection.subtitle;
 
   // 双栏图文块
