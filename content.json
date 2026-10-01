@@ -268,6 +268,8 @@
     "t_cardBg_color": "#3e342b",
     "f_heroVideoUrl_color": "#3e342b",
     "f_footerDesc_color": "#3e342b",
-    "f_footerCopyright_color": "#3e342b"
+    "f_footerCopyright_color": "#3e342b",
+    "f_block1Title_weight": "500",
+    "f_block1Title_spacing": "0.5"
   }
 }
