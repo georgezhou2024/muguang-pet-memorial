@@ -21,7 +21,9 @@
     "headWeight": "700",
     "bodySize": "17",
     "radius": "16",
-    "btnStyle": "solid"
+    "btnStyle": "solid",
+    "sectionPad": "40",
+    "cardPad": "20"
   },
   "images": {
     "heroPhoto": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841245746_a043641891e8b9bb510153c65ab5c72f.jpg",
