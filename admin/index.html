@@ -494,13 +494,17 @@ function updatePreview(pvId, url){
 }
 function uploadImg(hiddenId, pvId){
   document.getElementById('uploadTarget').value = hiddenId + '|' + pvId;
-  document.getElementById('fileInput').setAttribute('accept','image/*');
-  document.getElementById('fileInput').click();
+  const fi = document.getElementById('fileInput');
+  fi.setAttribute('accept','image/png,image/jpeg,image/jpg,image/gif,image/webp,.png,.jpg,.jpeg,.gif,.webp');
+  fi.value = '';
+  fi.click();
 }
 function uploadVideo(hiddenId, pvId){
   document.getElementById('uploadTarget').value = hiddenId + '|' + pvId;
-  document.getElementById('fileInput').setAttribute('accept','video/*');
-  document.getElementById('fileInput').click();
+  const fi = document.getElementById('fileInput');
+  fi.setAttribute('accept','video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov');
+  fi.value = '';
+  fi.click();
 }
 function onFileChosen(input){
   const file = input.files[0]; if(!file) return;
