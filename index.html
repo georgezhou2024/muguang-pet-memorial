@@ -127,7 +127,7 @@
 </section>
 
 <!-- 联系带 -->
-<section class="contact-band">
+<section class="contact-band" id="contactSection">
   <div class="container">
     <h2>此刻，我们在你身边</h2>
     <p>无论白天还是深夜，拨通电话，就有人轻声回应你。</p>
@@ -283,6 +283,15 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   if(c.footer){
     document.getElementById('footDesc').textContent = c.footer.desc;
     document.getElementById('footCopyright').textContent = c.footer.copyright;
+  }
+
+  // 板块排序
+  if(c.sectionOrder && c.sectionOrder.length){
+    const map = {hero:'heroSection',gallery:'gallery',blocks:'blocks',services:'services',process:'process',plans:'plans',philosophy:'about',contact:'contactSection'};
+    const parent = document.querySelector('main') || document.body;
+    const sections = c.sectionOrder.map(s=>document.getElementById(map[s])).filter(Boolean);
+    const footer = document.querySelector('footer');
+    sections.forEach(sec=>parent.insertBefore(sec, footer));
   }
 });
 </script>

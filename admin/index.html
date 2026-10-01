@@ -329,6 +329,11 @@
     </div>
 
     <div class="section">
+      <h2>板块排序（点 ↑↓ 调整顺序）</h2>
+      <div id="sectionOrderList" style="display:flex;flex-direction:column;gap:6px"></div>
+    </div>
+
+    <div class="section">
       <h2>视频（粘贴链接即可）</h2>
       <div class="field">
         <label>Hero 区视频链接</label>
@@ -500,6 +505,27 @@ function copyBooking(btn){
   });
 }
 
+// 板块排序
+const SECTION_NAMES = ['hero','gallery','blocks','services','process','plans','philosophy','contact'];
+const SECTION_LABELS = {hero:'Hero主视觉',gallery:'照片墙',blocks:'图文块',services:'服务项目',process:'告别流程',plans:'服务套餐',philosophy:'理念区',contact:'联系带'};
+let sectionOrder = [...SECTION_NAMES];
+
+function renderSectionOrder(){
+  const el = document.getElementById('sectionOrderList');
+  el.innerHTML = sectionOrder.map((s,i)=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f5f0e8;border-radius:6px">
+      <span style="flex:1;font-size:14px">${i+1}. ${SECTION_LABELS[s]}</span>
+      <button onclick="moveSection(${i},-1)" ${i===0?'disabled style="opacity:.3"':''} style="width:30px;height:30px;border:none;background:#B8743A;color:#fff;border-radius:4px;cursor:pointer">↑</button>
+      <button onclick="moveSection(${i},1)" ${i===sectionOrder.length-1?'disabled style="opacity:.3"':''} style="width:30px;height:30px;border:none;background:#B8743A;color:#fff;border-radius:4px;cursor:pointer">↓</button>
+    </div>`).join('');
+}
+function moveSection(i,dir){
+  const j = i+dir;
+  if(j<0||j>=sectionOrder.length) return;
+  [sectionOrder[i],sectionOrder[j]] = [sectionOrder[j],sectionOrder[i]];
+  renderSectionOrder();
+}
+
 async function showBookings(btn){
   showTab('bookings', btn);
   const list = document.getElementById('bookingsList');
@@ -593,6 +619,7 @@ function fillForm(){
   if(t.btnStyle) document.getElementById('f_btnStyle').value = t.btnStyle;
   if(t.sectionPad) document.getElementById('f_sectionPad').value = t.sectionPad;
   if(t.cardPad) document.getElementById('f_cardPad').value = t.cardPad;
+  if(content.sectionOrder){ sectionOrder = content.sectionOrder; renderSectionOrder(); }
 
   // images
   const im = content.images || {};
@@ -804,6 +831,7 @@ async function doSave(){
     sectionPad: document.getElementById('f_sectionPad').value,
     cardPad: document.getElementById('f_cardPad').value
   };
+  content.sectionOrder = sectionOrder;
 
   content.images = {
     heroPhoto: document.getElementById('f_heroPhoto').value,

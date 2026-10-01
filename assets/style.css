@@ -171,10 +171,10 @@ nav a:hover,nav a.active{color:var(--brand)}
 .philosophy blockquote{border-left:3px solid var(--brand);padding:10px 0 10px 20px;margin:20px 0;font-style:italic;color:var(--ink)}
 
 /* 联系/预约区 */
-.contact-band{background:var(--ink);color:#E8D5BE;padding:64px 0;text-align:center}
+.contact-band{background:var(--brand-dark,#9A5D2E);color:#FDFBF8;padding:64px 0;text-align:center}
 .contact-band h2{color:#fff;font-size:28px;margin-bottom:12px;letter-spacing:2px}
-.contact-band p{color:#C9B89E;margin-bottom:28px}
-.contact-band .phone{font-size:32px;color:var(--brand-letter-spacing:4px);color:#E8D5BE;font-family:Georgia,serif;letter-spacing:2px}
+.contact-band p{color:#F0E0CC;margin-bottom:28px}
+.contact-band .phone{font-size:32px;color:#fff;font-family:Georgia,serif;letter-spacing:2px}
 
 /* Footer */
 footer{background:#2E2620;color:#9C8E7E;padding:56px 0 28px;font-size:14px}
