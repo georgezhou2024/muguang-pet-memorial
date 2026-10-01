@@ -189,9 +189,12 @@ fetch('content.json').then(r=>r.json()).then(c=>{
   document.getElementById('heroBtn1').textContent = c.hero.btn1;
   document.getElementById('heroBtn2').textContent = c.hero.btn2;
 
-  // Hero 右侧大图
+  // Hero 右侧大图/视频
   const hp = document.getElementById('heroPhoto');
-  if(c.images && c.images.heroPhoto){
+  const hv = c.images && c.images.heroVideo;
+  if(hv){
+    hp.innerHTML = `<video src="${hv}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px"></video>`;
+  } else if(c.images && c.images.heroPhoto){
     hp.innerHTML = `<img src="${c.images.heroPhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:12px">`;
   }
 

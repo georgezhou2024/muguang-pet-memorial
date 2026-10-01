@@ -233,11 +233,12 @@
     </div>
 
     <div class="section">
-      <h2>图片上传（点按钮选本地图片）</h2>
+      <h2>图片上传（点按钮选本地图片，或从媒体库选已传过的）</h2>
       <div class="img-upload">
         <div class="preview" id="pv_logo"><span>🖼</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_logoImage','pv_logo')">上传 Logo 图片</button>
+          <button onclick="openMedia('f_logoImage','pv_logo')" style="background:#666">从媒体库选</button>
           <div class="hint">方形最佳</div>
         </div>
         <input type="hidden" id="f_logoImage">
@@ -246,6 +247,7 @@
         <div class="preview" id="pv_heroPhoto"><span>🖼</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_heroPhoto','pv_heroPhoto')">上传 Hero 右侧大图</button>
+          <button onclick="openMedia('f_heroPhoto','pv_heroPhoto')" style="background:#666">从媒体库选</button>
           <div class="hint">首页横幅右侧，建议竖图或方图</div>
         </div>
         <input type="hidden" id="f_heroPhoto">
@@ -254,6 +256,7 @@
         <div class="preview" id="pv_gallery0"><span>1</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_gallery0','pv_gallery0')">照片墙 图1</button>
+          <button onclick="openMedia('f_gallery0','pv_gallery0')" style="background:#666">从媒体库选</button>
           <div class="hint">正方形最佳</div>
         </div>
         <input type="hidden" id="f_gallery0">
@@ -262,6 +265,7 @@
         <div class="preview" id="pv_gallery1"><span>2</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_gallery1','pv_gallery1')">照片墙 图2</button>
+          <button onclick="openMedia('f_gallery1','pv_gallery1')" style="background:#666">从媒体库选</button>
           <div class="hint">正方形最佳</div>
         </div>
         <input type="hidden" id="f_gallery1">
@@ -270,6 +274,7 @@
         <div class="preview" id="pv_gallery2"><span>3</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_gallery2','pv_gallery2')">照片墙 图3</button>
+          <button onclick="openMedia('f_gallery2','pv_gallery2')" style="background:#666">从媒体库选</button>
           <div class="hint">正方形最佳</div>
         </div>
         <input type="hidden" id="f_gallery2">
@@ -278,6 +283,7 @@
         <div class="preview" id="pv_gallery3"><span>4</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_gallery3','pv_gallery3')">照片墙 图4</button>
+          <button onclick="openMedia('f_gallery3','pv_gallery3')" style="background:#666">从媒体库选</button>
           <div class="hint">正方形最佳</div>
         </div>
         <input type="hidden" id="f_gallery3">
@@ -286,6 +292,7 @@
         <div class="preview" id="pv_block1Img"><span>🖼</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_block1Img','pv_block1Img')">图文块1 配图</button>
+          <button onclick="openMedia('f_block1Img','pv_block1Img')" style="background:#666">从媒体库选</button>
           <div class="hint">横图，建议 3:2</div>
         </div>
         <input type="hidden" id="f_block1Img">
@@ -294,6 +301,7 @@
         <div class="preview" id="pv_block2Img"><span>🖼</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_block2Img','pv_block2Img')">图文块2 配图</button>
+          <button onclick="openMedia('f_block2Img','pv_block2Img')" style="background:#666">从媒体库选</button>
           <div class="hint">横图，建议 3:2</div>
         </div>
         <input type="hidden" id="f_block2Img">
@@ -302,6 +310,7 @@
         <div class="preview" id="pv_aboutImg"><span>🖼</span></div>
         <div class="controls">
           <button onclick="uploadImg('f_aboutImg','pv_aboutImg')">理念区配图</button>
+          <button onclick="openMedia('f_aboutImg','pv_aboutImg')" style="background:#666">从媒体库选</button>
           <div class="hint">右侧方形图</div>
         </div>
         <input type="hidden" id="f_aboutImg">
@@ -329,6 +338,19 @@
 
   <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="onFileChosen(this)">
   <input type="hidden" id="uploadTarget">
+
+  <!-- 媒体库弹窗 -->
+  <div id="mediaModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;overflow:auto">
+    <div style="max-width:900px;margin:40px auto;background:#fff;border-radius:12px;padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 style="font-size:18px">🖼 媒体库（点击选择）</h2>
+        <button onclick="closeMedia()" style="background:none;border:none;font-size:20px;cursor:pointer">✕</button>
+      </div>
+      <div id="mediaGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        <p style="color:#999">加载中...</p>
+      </div>
+    </div>
+  </div>
 
   <div class="save-bar">
     <button class="btn-save" onclick="doSave()">保存并发布</button>
@@ -511,6 +533,41 @@ function uploadVideo(hiddenId, pvId){
   fi.setAttribute('accept','video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov');
   fi.value = '';
   fi.click();
+}
+
+// 媒体库
+let mediaTarget = '';
+async function openMedia(hiddenId, pvId){
+  mediaTarget = hiddenId + '|' + pvId;
+  document.getElementById('mediaModal').style.display = 'block';
+  const grid = document.getElementById('mediaGrid');
+  grid.innerHTML = '<p style="color:#999">加载中...</p>';
+  try{
+    const r = await fetch('/api/media');
+    const j = await r.json();
+    if(!j.files.length){
+      grid.innerHTML = '<p style="color:#999">媒体库为空，先上传图片</p>';
+      return;
+    }
+    grid.innerHTML = j.files.map(f=>`
+      <div onclick="pickMedia('${f.url}')" style="cursor:pointer;border:2px solid #eee;border-radius:8px;overflow:hidden">
+        ${f.type==='video'
+          ? `<video src="${f.url}" style="width:100%;height:100px;object-fit:cover"></video>`
+          : `<img src="${f.url}" style="width:100%;height:100px;object-fit:cover">`}
+        <div style="font-size:10px;padding:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f.name}</div>
+      </div>`).join('');
+  }catch(e){
+    grid.innerHTML = '<p style="color:#c0392b">加载失败: '+e+'</p>';
+  }
+}
+function pickMedia(url){
+  const [hiddenId, pvId] = mediaTarget.split('|');
+  document.getElementById(hiddenId).value = url;
+  updatePreview(pvId, url);
+  closeMedia();
+}
+function closeMedia(){
+  document.getElementById('mediaModal').style.display = 'none';
 }
 function onFileChosen(input){
   const file = input.files[0]; if(!file) return;
