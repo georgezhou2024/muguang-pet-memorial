@@ -226,7 +226,8 @@
         <div class="preview" id="pv_heroVideo" style="width:120px"><span>🎬</span></div>
         <div class="controls">
           <button onclick="uploadVideo('f_heroVideo','pv_heroVideo')">上传本地 mp4 视频</button>
-          <div class="hint">短视频 ≤25MB</div>
+          <button onclick="openMedia('f_heroVideo','pv_heroVideo')" style="background:#666">从媒体库选</button>
+          <div class="hint">短视频 ≤25MB；或直接在上面粘贴视频链接</div>
         </div>
         <input type="hidden" id="f_heroVideo">
       </div>
@@ -518,7 +519,12 @@ function setColor(key, val){ if(!val) return; document.getElementById('c_'+key).
 function syncColor(from,to){ document.getElementById(to).value=document.getElementById(from).value; }
 function updatePreview(pvId, url){
   const pv = document.getElementById(pvId);
-  pv.innerHTML = url ? `<img src="${url}">` : '<span>🖼</span>';
+  if(!url){ pv.innerHTML = '<span>🖼</span>'; return; }
+  if(/\.(mp4|webm|mov)$/i.test(url)){
+    pv.innerHTML = `<video src="${url}" muted playsinline style="width:100%;height:100%;object-fit:cover"></video>`;
+  } else {
+    pv.innerHTML = `<img src="${url}">`;
+  }
 }
 function uploadImg(hiddenId, pvId){
   document.getElementById('uploadTarget').value = hiddenId + '|' + pvId;
