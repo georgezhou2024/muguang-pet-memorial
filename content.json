@@ -192,10 +192,10 @@
     "contact"
   ],
   "textStyles": {
-    "f_brandName_color": "#3e342b",
-    "f_brandNameEn_color": "#e3d9d9",
-    "f_logoEmoji_color": "#3e342b",
-    "f_hotline_color": "#ada8a4",
+    "f_brandName_color": "#e6e0db",
+    "f_brandNameEn_color": "#d5cec8",
+    "f_logoEmoji_color": "#ddc5b1",
+    "f_hotline_color": "#ddd6cf",
     "f_address_color": "#3e342b",
     "f_heroMark_color": "#3e342b",
     "f_heroBtn1_color": "#3e342b",
