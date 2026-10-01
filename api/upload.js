@@ -2,7 +2,15 @@
 const REPO = process.env.GITHUB_REPO || 'georgezhou2024/muguang-pet-memorial';
 const BRANCH = process.env.GITHUB_BRANCH || 'main';
 
+function cors(res){
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers','Content-Type');
+}
+
 export default async function handler(req, res) {
+  cors(res);
+  if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({error:'Method not allowed'});
   const token = process.env.GITHUB_TOKEN;
   if (!token) return res.status(500).json({error:'GITHUB_TOKEN 环境变量未配置'});
@@ -15,11 +23,9 @@ export default async function handler(req, res) {
   const mime = m[1];
   const b64 = m[2];
 
-  // 检查大小（base64 约 1.33 倍原文件）
   const sizeMB = (b64.length * 0.75 / 1024 / 1024);
-  if (sizeMB > 25) return res.status(400).json({error: `文件太大（${sizeMB.toFixed(1)}MB），GitHub 限制单文件 25MB。视频建议先用压缩工具压缩，或上传到视频平台后粘贴链接。`});
+  if (sizeMB > 25) return res.status(400).json({error: `文件太大（${sizeMB.toFixed(1)}MB），GitHub 限制单文件 25MB。`});
 
-  const ext = mime.split('/')[1] || 'png';
   const safeName = filename.replace(/[^a-zA-Z0-9_\-\.]/g,'_').toLowerCase();
   const path = `images/${Date.now()}_${safeName}`;
 
