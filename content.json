@@ -15,13 +15,15 @@
     "bg": "#b8743a",
     "bgSoft": "#b8743a",
     "line": "#d0cac3",
-    "cardBg": "#a8b8d1",
+    "cardBg": "#c7c0bd",
     "fontHeading": "'Noto Sans SC',sans-serif",
     "fontBody": "'Noto Sans SC',sans-serif",
     "headWeight": "700",
     "bodySize": "17",
     "radius": "16",
-    "btnStyle": "solid"
+    "btnStyle": "solid",
+    "sectionPad": "40",
+    "cardPad": "20"
   },
   "images": {
     "heroPhoto": "https://raw.githubusercontent.com/georgezhou2024/muguang-pet-memorial/main/images/1790841245746_a043641891e8b9bb510153c65ab5c72f.jpg",
@@ -46,7 +48,9 @@
     "hero1Font": "",
     "hero1Color": "#3e342b",
     "hero2Font": "",
-    "hero2Color": "#b8743a"
+    "hero2Color": "#b8743a",
+    "subFont": "",
+    "subColor": "#fff7f0"
   },
   "gallerySection": {
     "eyebrow": "OUR SPACE",
