@@ -820,15 +820,30 @@ async function openMedia(hiddenId, pvId){
       return;
     }
     grid.innerHTML = j.files.map(f=>`
-      <div onclick="pickMedia('${f.url}')" style="cursor:pointer;border:2px solid #eee;border-radius:8px;overflow:hidden">
+      <div onclick="pickMedia('${f.url}')" style="cursor:pointer;border:2px solid #eee;border-radius:8px;overflow:hidden;position:relative">
         ${f.type==='video'
           ? `<video src="${f.url}" style="width:100%;height:100px;object-fit:cover"></video>`
           : `<img src="${f.url}" style="width:100%;height:100px;object-fit:cover">`}
         <div style="font-size:10px;padding:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f.name}</div>
+        <button onclick="event.stopPropagation();deleteMedia('${f.url}','${f.name}')" style="position:absolute;top:4px;right:4px;background:#e74c3c;color:#fff;border:none;border-radius:4px;width:24px;height:24px;cursor:pointer;font-size:12px">✕</button>
       </div>`).join('');
   }catch(e){
     grid.innerHTML = '<p style="color:#c0392b">加载失败: '+e+'</p>';
   }
+}
+
+async function deleteMedia(url, name){
+  if(!confirm('确定删除 '+name+'？')) return;
+  const path = 'images/' + name;
+  try{
+    const r = await fetch('/api/delete-media',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path})});
+    if(r.ok){
+      alert('已删除');
+      openMedia(mediaTarget.split('|')[0], mediaTarget.split('|')[1]);
+    } else {
+      alert('删除失败');
+    }
+  }catch(e){ alert('网络错误: '+e); }
 }
 function pickMedia(url){
   const [hiddenId, pvId] = mediaTarget.split('|');
