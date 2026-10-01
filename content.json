@@ -12,14 +12,14 @@
     "brandDark": "#9A5D2E",
     "brandSoft": "#E8D5BE",
     "ink": "#f1e7df",
-    "bg": "#7c756e",
-    "bgSoft": "#938c85",
-    "line": "#E8DDD0",
+    "bg": "#b8743a",
+    "bgSoft": "#b8743a",
+    "line": "#d0cac3",
     "fontHeading": "'Noto Sans SC',sans-serif",
     "fontBody": "'Noto Sans SC',sans-serif",
     "headWeight": "700",
     "bodySize": "17",
-    "radius": "12",
+    "radius": "16",
     "btnStyle": "solid"
   },
   "images": {
